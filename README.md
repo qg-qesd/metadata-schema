@@ -24,12 +24,9 @@ Many of the other major schemas have mapping applied to automatically convert me
 ## DCAT2 classes
 DCAT2 has six main classes that describe the key components of the catalog and its resources.
 
-- Catalog: a collection of metadata about datasets and data services.
-- Dataset: a dataset is a collection of data published or curated by a single agent.
-- Distribution: represents an accessible form of a dataset, such as a downloadable file.
-- Data Service: a data service is a collection of operations accessible through an interface that provide access to dataset/s or data processing functions.
-- Catalog Record: is primarily concerned with the registration of information, such as who added the item and when.
-- Resource: represents a dataset, a data service or any other resource that may be described by a metadata record in a catalog. Not intended to be used directly, is a parent class for datasets, data services and catalogs; other types of resources would become additional sub-classes of resource.
-
-
-
+- **Catalog**: a collection of metadata about datasets and data services.
+- **Dataset**: a dataset is a collection of data published or curated by a single agent.
+- **Distribution**: represents an accessible form of a dataset, such as a downloadable file.
+- **Data Service**: a data service is a collection of operations accessible through an interface that provide access to dataset/s or data processing functions.
+- **Catalog Record**: is primarily concerned with the registration of information, such as who added the item and when.
+- **Resource**: represents a dataset, a data service or any other resource that may be described by a metadata record in a catalog. Not intended to be used directly, is a parent class for datasets, data services and catalogs; other types of resources would become additional sub-classes of resource.
