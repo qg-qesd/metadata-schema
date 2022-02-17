@@ -156,5 +156,5 @@ Its `foaf:primaryTopic` property points to the resource description that it is a
 ## Summary diagram of QDCAT
 The Summary view is based on [DCATv2](https://www.w3.org/TR/vocab-dcat-2/). A version of the summary diagram using the user friendly field names is available as the [QESD_Schema_Summary-Diagram.png](./QESD_Schema_Summary-Diagram.png)
 
-![Image of QESD Schema CLass Summary](./QESD_Schema_Summary-Class-Diagram.png)
+![Image of QESD Schema Summary](./QESD_Schema_Summary-Diagram.png)
 
