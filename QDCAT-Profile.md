@@ -1,5 +1,4 @@
 # QDCAT Profile and metadata model
-
 ## Key to tabulations
 
 **obligation** shows the count expectations for each element
