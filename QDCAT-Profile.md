@@ -17,8 +17,8 @@ Implemented as **[dcat:Dataset](https://www.w3.org/TR/vocab-dcat-2/#Class:Datase
 
 Note that each downloadable form ('distribution')) is described separately - see [Data access](#Data-access). 
 
- | Field |  obligation  |  examples  |  usage note |  QDCAT path<br/>base=**[dcat:Dataset/](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset)**  |  range | ToolTip |
- |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---   
+ | Field |  Obligation  |  Examples  |  Usage note |  QDCAT path<br/>base=**[dcat:Dataset/](https://www.w3.org/TR/vocab-dcat-2/#Class:Dataset)**  |  Range | ToolTip |
+ |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  
  | <a name="dataset-identification"></a> **Identification**  |  |  |  |  | 
  |  title  |  **M**  |  _"Queensland Future Climate Dataset – Downscaled CMIP5 climate projections for RCP8.5 and RCP4.5"_ <br/> _"Vegetation management regional ecosystem map - version 11.0 - By Area Of Interest"_ <br/> _"Matters of state environmental significance - Regulated vegetation - category C endangered or of concern - Queensland"_  |   |  **[dcterms:title](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_title)**  |  `xsd:string` |  |
   |  identifier  |  **M+**  |  doi:10.25901/5e3ba30f141b7 <br/> {8E151344-E458-45E9-8993-5E855D311971}  |  identifier(s) in the Qld system(s) (may be more than one)  |  **[dcterms:identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier)**  |  `xsd:string` or sub-type | Add any unique identifiers associated with the dataset. Input is a URI. |
@@ -78,8 +78,8 @@ A Data Service (i.e. for discovery, query/download, visualization, transformatio
 Implemented as **[dcat:DataService](https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service)**
 It can then be referenced in a dataset description. 
 
- | Field |  obligation  |  example  |  usage note |  QDCAT path<br/>base=**[dcat:DataService/](https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service)**  |  range | ToolTip Text |
- |  ---  |  ---  |  ---  |  ---   |  ---  |  --- | --- |
+ | Field |  Obligation  |  Example  |  Usage Note |  QDCAT path<br/>base=**[dcat:DataService/](https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service)**  |  Range | ToolTip Text |
+ |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  | 
  | <a name="service-identification"></a> **Identification**  |  |  |  |  | 
  |  title  |  **M**  |  _"Queensland Spatial Catalogue"_  |   |  **[dcterms:title](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_title)**  |  `xsd:string` |  |
  |  identifier  |  **M+**  |  _QSpatial_  |  identifier in the Qld system (might be more than one)  |  **[dcterms:identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier)**  |   `xsd:string` or sub-type |  Add any unique identifiers associated with the data service. Input is a URI.  |
@@ -119,8 +119,8 @@ It can then be referenced in a dataset description.
 The description of each downloadable form of the dataset is a (small) separate item in the catalogue. 
 Implemented as **[dcat:Distribution](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution)** 
 
- |  Field  |  obligation  |  examples  |  usage note |  QDCAT path<br/>base=**[dcat:Distribution/](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution)**  |  range |  ToolTip Text  |
-|  ---  |  ---  |  ---  |  ---  |  --- |  ---  |  ---  |
+ |  Field  |  Obligation  |  Examples  |  Usage Note |  QDCAT path<br/>base=**[dcat:Distribution/](https://www.w3.org/TR/vocab-dcat-2/#Class:Distribution)**  |  Range |  ToolTip Text  |
+|  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  | 
  |  title  |  O  |  _Vegetation management regional ecosystem map_ <br/> _MSES - Regulated vegetation - category C endangered or of concern_  | This is the same as the alternate title used in the Qspatial system  |  **[dcterms:title](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_title)**  |  `xsd:string` |  | 
  |  schema, standard(s)  |  O+  |  https://www.iana.org/assignments/media-types/application/x-netcdf  | indicate the schema, data-structure, vocabularies used by the dataset |   [dcterms:conformsTo](https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_conforms_to)  |  URI-reference |  List any standards, data structures or vocabularies used by the dataset  |
  |  primary format  |  **M**  |  http://publications.europa.eu/resource/authority/file-type/NETCDF <br/> http://publications.europa.eu/resource/authority/file-type/GEOJSON <br/> http://publications.europa.eu/resource/authority/file-type/CSV  | file format or "MIME-type" |  **[dcat:mediaType](https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_media_type)**<br/>or **[dcterms:format](https://www.w3.org/TR/vocab-dcat-2/#Property:distribution_format)**  |  URI-reference to an item from [DES File Types](https://vocabs.gsq.digital/object?uri=https%3A//linked.data.gov.au/def/qg-file-types/des-file-types) |  | 
@@ -143,8 +143,8 @@ This record primarily concerns the lifecycle of the metadata description.
 Its `foaf:primaryTopic` property points to the resource description that it is about. 
 
 
- |  Field  |  obligation  |  examples  |  usage note |  QDCAT path<br/>base=**[dcat:CatalogRecord/](https://www.w3.org/TR/vocab-dcat-2/#Class:Catalog_Record)**  |  range | ToolTip Text|
- |  ---  |  ---  |  ---  |  --- |  ---  |  ---  |  ---  
+ |  Field  |  Obligation  |  Examples  |  Usage Note |  QDCAT path<br/>base=**[dcat:CatalogRecord/](https://www.w3.org/TR/vocab-dcat-2/#Class:Catalog_Record)**  |  Range | ToolTip Text|
+ |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  | 
  |  identifier  |  O  |  bf437edd-a533-4967-ad46-b1cb1dc3ac82  |  identifier(s) in the Qld system(s) (may be more than one) |  [dcterms:identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier)  | `xsd:string` or sub-type  |  |
  |  metadata creation date  |  **R**  |  2008-11-12T00:00:00  |  |  **[dcterms:issued](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_release_date)**  |  `xsd:date` or `xsd:dateTime`  |  |
  |  metadata update date  |  O  |  2020-03-04T08:20:56  |   |  [dcterms:modified](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_update_date)  |  `xsd:date` or `xsd:dateTime` |  |
