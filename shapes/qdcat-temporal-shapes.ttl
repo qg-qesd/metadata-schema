@@ -1,0 +1,74 @@
+# baseURI: http://linked.data.qld.gov.au/def/qdcat-temporal-shapes
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdcats: <http://linked.data.qld.gov.au/def/dcat-shapes#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+qdcats:Dataset-temporal
+  rdfs:comment "NodeShape for temporal properties in a Dataset description" ;
+  a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dcterms:created ;
+    sh:or (
+      [ sh:datatype xsd:date ; ]
+      [ sh:datatype xsd:dateTime ; ]
+    )
+  ] ;
+  sh:property [
+    sh:path dcterms:issued ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:or (
+      [ sh:datatype xsd:date ; ]
+      [ sh:datatype xsd:dateTime ; ]
+    )
+  ] ;
+  sh:property [
+    sh:path dcterms:modified ;
+    sh:minCount 1 ;
+    sh:or (
+      [ sh:datatype xsd:date ; ]
+      [ sh:datatype xsd:dateTime ; ]
+    )
+  ] ;
+  sh:property [
+    sh:path dcterms:temporal ;
+    sh:class dcterms:PeriodOfTime ;
+  ] ;
+  sh:property [
+    sh:path dcat:temporalResolution ;
+    sh:datatype xsd:duration ;
+  ] ;
+.
+qdcats:PeriodOfTime
+  a sh:NodeShape ;
+  sh:targetClass dcterms:PeriodOfTime ;
+  sh:property [
+    sh:path dcat:endDate ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:or (
+      [ sh:datatype xsd:date ; ]
+      [ sh:datatype xsd:dateTime ; ]
+    )
+  ] ;
+  sh:property [
+    sh:path dcat:startDate ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:or (
+      [ sh:datatype xsd:date ; ]
+      [ sh:datatype xsd:dateTime ; ]
+    )
+  ] ;
+.

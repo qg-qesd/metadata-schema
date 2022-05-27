@@ -1,0 +1,73 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/qqr
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:qqr-data
+  a dcat:Dataset ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/12250935-8f40-4279-aada-2f22cbef1459> ;
+      qudt:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/6045993e-a656-40c1-853c-9db1fbb49171> ;
+      qudt:unit <https://w3id.org/tern/resources/62acd8ae-5ac2-4421-81f8-841a59ce564d> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/6b3be650-6625-40b5-9b40-9e7c8a9fd336> ;
+      qudt:unit <http://qudt.org/vocab/unit/W-PER-M2> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/a249c68f-8249-4285-aad2-020b3c5aefc3> ;
+      qudt:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/ca820557-401e-4e5e-ac32-29fdbc0628b3> ;
+      qudt:unit <http://qudt.org/vocab/unit/UNITLESS> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/e8580cbb-701a-4ab1-a40f-5fae4ae1ea24> ;
+      qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/f50672b3-13d8-4206-b6c9-a1f9891ea470> ;
+      qudt:unit <http://qudt.org/vocab/unit/UNITLESS> ;
+    ] ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dcterms:description "Modeling results were compared to observed data from Australian Gridded Climate Data (AWAP), which was spatially aggregated to 10 km over Queensland region for the 1986-2005 and 1981-2010 periods." ;
+      dqv:inDimension <http://linked.data.qld.gov.au/vocab/dq/QuantitativeAttributeAccuracy> ;
+      oa:bodyValue "Mean bias, rmse and correlation between model variables (rainfall, mean, maximum and minimum) temperature were assessed against observed data at seasonal and annual basis. Manuscript in preparation. In addition daily data was used to compute Perkins skill score of PDF distribution for rainfall, maximum and minimum temperatures." ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description "School of Biological Sciences, University of Queensland and the Science Division from the Department of Environment and Sciences (DES) developed a comprehensive set of high resolution climate change projections for Queensland to underpin the Queensland Climate Adaptation Strategy (Q-CAS).  A set of high-resolution climate change projections for RCP8.5 and RCP4.5 using CSIRO CCAM climate model. Eleven CMIP5 models were downscaled to a 50 km global resolution for 1950-2099 using bias corrected SSTs from global models. Subsequently projection at 10 km resolution were completed with CCAM stretched over Queensland region. These simulations were the first CMIP5 downscaled climate projections in Australia and consists of a large ensemble with continuous simulations for 1980 to 2099." ;
+      prov:wasAssociatedWith <https://orcid.org/0000-0003-1782-3073> ;
+    ] ;
+.

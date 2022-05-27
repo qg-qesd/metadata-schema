@@ -1,0 +1,138 @@
+# baseURI: http://linked.data.qld.gov.au/def/qdcat-spatial-shapes
+# imports: http://datashapes.org/dash
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdcats: <http://linked.data.qld.gov.au/def/dcat-shapes#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qdcats:BBox
+  a sh:NodeShape ;
+  sh:property [
+      sh:path qdcat:lowerLeft ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path qdcat:upperRight ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass qdcat:BBox ;
+.
+qdcats:Dataset-spatial
+  a sh:NodeShape ;
+  rdfs:comment "NodeShape for spatial properties in a Dataset description" ;
+  sh:property [
+      sh:path dcterms:spatial ;
+      sh:xone (
+          [
+            sh:class dcterms:Location ;
+          ]
+          [
+            sh:class qdcat:BBox ;
+          ]
+          [
+            sh:class geo:Geometry ;
+          ]
+          [
+            sh:class geo:Feature ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcat:spatialResolutionInMeters ;
+      sh:datatype xsd:decimal ;
+    ] ;
+  sh:property [
+      sh:path qdcat:hasSpatialRepresentation ;
+      sh:class qdcat:SpatialRepresentation ;
+    ] ;
+  sh:targetClass dcat:Dataset ;
+.
+qdcats:Geometry
+  a sh:NodeShape ;
+  sh:property [
+      sh:path qdcat:asGeoJSON ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass geo:Geometry ;
+.
+qdcats:Location
+  a sh:NodeShape ;
+  sh:targetClass dcterms:Location ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path geo:hasGeometry ;
+            sh:class geo:Geometry ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path dcat:centroid ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path dcat:bbox ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path qdcat:lowerLeft ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+        sh:property [
+            sh:path qdcat:upperRight ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+.
+qdcats:SpatialRepresentation
+  a sh:NodeShape ;
+  sh:property [
+      sh:path geox:inCRS ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://epsg.io/)|(https://epsg.org/)" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:type ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path qdcat:spatialResolution ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass qdcat:SpatialRepresentation ;
+.
+<http://linked.data.qld.gov.au/def/qdcat-spatial-shapes>
+  a owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+.

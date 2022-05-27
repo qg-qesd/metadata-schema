@@ -1,0 +1,148 @@
+# baseURI: http://linked.data.qld.gov.au/def/qdcat-qqr-shapes
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdcats: <http://linked.data.qld.gov.au/def/dcat-shapes#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qdcats:Dataset-qqr
+  rdfs:comment "NodeShape for measurand, quality, and provenance properties in a Dataset description" ;
+  a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path qudt:hasQuantity ;
+    sh:class qudt:Quantity ;
+  ] ;
+  sh:property [
+    sh:path dqv:hasQualityAnnotation ;
+    sh:class dqv:QualityAnnotation ;
+  ] ;
+  sh:property [
+    sh:path dqv:hasQualityMeasurement	;
+    sh:class dqv:QualityMeasurement ;
+  ] ;
+  sh:property [
+    sh:path dcat:qualifiedRelation ;
+    sh:class dcat:Relationship ;
+  ] ;
+  sh:property [
+    sh:path prov:qualifiedAttribution ;
+    sh:class prov:Attribution ;
+  ] ;
+  sh:property [
+    sh:path prov:wasGeneratedBy ;
+    sh:class prov:Activity ;
+  ] ;
+.
+qdcats:Activity
+  a sh:NodeShape ;
+  sh:targetClass prov:Activity ;
+  sh:property [
+    sh:path dcterms:description ;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path prov:hadPlan ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path prov:used ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    sh:path sosa:madeBySensor ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    sh:path prov:wasAssociatedWith ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+.
+qdcats:Attribution
+  a sh:NodeShape ;
+  sh:targetClass prov:Attribution ;
+  sh:property [
+    sh:path prov:agent ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcat:hadRole ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+.
+qdcats:QualityAnnotation
+  a sh:NodeShape ;
+  sh:targetClass dqv:QualityAnnotation ;
+  sh:property [
+    sh:path dqv:inDimension ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path oa:bodyValue ;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+.
+qdcats:QualityMeasurement
+  a sh:NodeShape ;
+  sh:targetClass dqv:QualityMeasurement ;
+  sh:property [
+    sh:path dqv:inDimension ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+.
+qdcats:Quantity
+  a sh:NodeShape ;
+  sh:targetClass qudt:Quantity ;
+  sh:property [
+    sh:path qudt:hasQuantityKind ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path qudt:unit ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+  ] ;
+.
+qdcats:Relationship
+  a sh:NodeShape ;
+  sh:targetClass dcat:Relationship ;
+  sh:property [
+    sh:path dcterms:relation ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcat:hadRole ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+.
