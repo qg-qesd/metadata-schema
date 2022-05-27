@@ -1,0 +1,52 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/spatio-temporal-test
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Spatio-temporal-test-data
+  a dcat:Dataset ;
+  dcterms:created "2020-02-04T00:00:00"^^xsd:dateTime ;
+  dcterms:issued "2020-03-04T00:00:00"^^xsd:dateTime ;
+  dcterms:modified "2020-02-05T00:00:00"^^xsd:dateTime ;
+  dcterms:modified "2020-02-06T00:00:00"^^xsd:dateTime ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      geo:hasGeometry [ 
+        a geo:Geometry ; 
+        qdcat:asGeoJSON "{\"type\":\"Polygon\",\"coordinates\":[[[138,-29.5],[155,-29.5],[155,-9],[138,-9],[138,-29.5]]]}"^^rdf:JSON ;
+      ] ;
+    ] ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      dcat:bbox "{\"type\":\"Polygon\",\"coordinates\":[[[138,-29.5],[155,-29.5],[155,-9],[138,-9],[138,-29.5]]]}"^^rdf:JSON ;
+    ] ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      dcat:centroid "{\"type\":\"Point\",\"coordinates\":[146.5, -19.25]}"^^rdf:JSON ;
+    ] ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[138, -29.5]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[155, -9]}"^^rdf:JSON ;
+    ] ;
+  dcterms:temporal [
+      a dcterms:PeriodOfTime ;
+      dcat:endDate "2017-06-30T12:30:00.00Z"^^xsd:dateTime ;
+      dcat:startDate "2017-05-30"^^xsd:date ;
+    ] ;
+  dcat:spatialResolutionInMeters 50000.0 ;
+  dcat:temporalResolution "P1M"^^xsd:duration ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      geox:inCRS <https://epsg.io/4326> ;
+      geox:inCRS <https://epsg.org/crs_4326/WGS-84.html> ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/grid> ;
+      qdcat:spatialResolution <https://gcmd.nasa.gov/kms/concept/3b36beea-9637-4213-bdbe-42e878ca14df.xml> ;
+    ] ;
+.

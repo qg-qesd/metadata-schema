@@ -1,0 +1,182 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/cmip5-down
+# imports: http://linked.data.qld.gov.au/def/dcat-shapes
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:cmip5-data
+  a dcat:Dataset ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_RestrictionCode/licence> ;
+  dcterms:accrualPeriodicity <http://registry.it.csiro.au/def/isotc211/MD_MaintenanceFrequencyCode/asNeeded> ;
+  dcterms:created "2020-02-04T00:00:00"^^xsd:dateTime ;
+  dcterms:creator <https://orcid.org/0000-0003-1782-3073> ;
+  dcterms:creator <https://w3id.org/tern/resources/751d1c73-1504-4852-b2c1-cb0c8f8260b2> ;
+  dcterms:creator <https://w3id.org/tern/resources/7c29af6e-e185-4f00-bdd1-2be4bd9b888a> ;
+  dcterms:creator <https://w3id.org/tern/resources/90021031-647f-4b03-81d8-0cf8d00c72bd> ;
+  dcterms:creator <https://w3id.org/tern/resources/edba8468-e0a8-4df0-a7b6-fb4b6420e030> ;
+  dcterms:description "Dynamically downscaled high-resolution (~10 km spatial resolution)  climate change projection data for Queensland. Downscaling was completed using CSIRO Conformal Cubic Atmospheric Model (CCAM) for two RCPs (RCP4.5 and RCP8.5) from 11 CMIP5 global coarse resolution models for period 1980-2099. The Queensland Future Climate Dashboard (www.longpaddock.qld.gov.au/qld-future-climate/ ) provides easy access to climate projection for Queensland. The dashboard allows users to explore, visualize and download the latest high-resolution climate modelling data for specific regions, catchments, disaster areas, local government areas and grid squares. Underlying data is provided via TERN for easy access for each of 11 downscaled models. The Queensland Future Climate Dataset provides high resolution data for over 30 different metrics grouped in six climate themes: (i) Mean Climate; (ii) Heatwaves; (iii) Extreme Temperature Indices; (iv) Extreme Precipitation Indices; (v) Droughts; and (vi) Floods. In addition selected variables at daily and monthly intervals are also available." ;
+  dcterms:identifier "doi:10.25901/5e3ba30f141b7"^^xsd:anyURI ;
+  dcterms:issued "2020-03-04T00:00:00"^^xsd:dateTime ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2020-02-05T00:00:00"^^xsd:dateTime ;
+  dcterms:publisher <https://w3id.org/tern/resources/a083902d-d821-41be-b663-1d7cb33eea66> ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[132., -32.]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[158., -9.5]}"^^rdf:JSON ;
+    ] ;
+  dcterms:temporal [
+      a dcterms:PeriodOfTime ;
+      dcat:startDate "2020-02-04"^^xsd:date ;
+    ] ;
+  dcterms:title "Queensland Future Climate Dataset – Downscaled CMIP5 climate projections for RCP8.5 and RCP4.5" ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/12250935-8f40-4279-aada-2f22cbef1459> ;
+      qudt:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/6045993e-a656-40c1-853c-9db1fbb49171> ;
+      qudt:unit <https://w3id.org/tern/resources/62acd8ae-5ac2-4421-81f8-841a59ce564d> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/6b3be650-6625-40b5-9b40-9e7c8a9fd336> ;
+      qudt:unit <http://qudt.org/vocab/unit/W-PER-M2> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/a249c68f-8249-4285-aad2-020b3c5aefc3> ;
+      qudt:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/ca820557-401e-4e5e-ac32-29fdbc0628b3> ;
+      qudt:unit <http://qudt.org/vocab/unit/UNITLESS> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/e8580cbb-701a-4ab1-a40f-5fae4ae1ea24> ;
+      qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <https://gcmdservices.gsfc.nasa.gov/kms/concept/f50672b3-13d8-4206-b6c9-a1f9891ea470> ;
+      qudt:unit <http://qudt.org/vocab/unit/UNITLESS> ;
+    ] ;
+  rdfs:label "Description of cmip5-downscaled dataset" ;
+  rdfs:seeAlso <https://www.longpaddock.qld.gov.au/qld-future-climate/> ;
+  owl:versionInfo "1.0.2" ;
+  adms:status <http://registry.it.csiro.au/def/isotc211/MD_ProgressCode/onGoing> ;
+  dcat:contactPoint <https://orcid.org/0000-0003-1782-3073> ;
+  dcat:distribution ex:cmip5-netcdf ;
+  dcat:keyword "24 HOUR PRECIPITATION AMOUNT" ;
+  dcat:keyword "ATMOSPHERIC SCIENCES" ;
+  dcat:keyword "CMIP5" ;
+  dcat:keyword "Climate Change Processes" ;
+  dcat:keyword "Climate Extremes" ;
+  dcat:keyword "Climatology (excl. Climate Change Processes)" ;
+  dcat:keyword "DROUGHT INDICES" ;
+  dcat:keyword "Daily, monthly and seasonal frequency" ;
+  dcat:keyword "EXTREME WEATHER" ;
+  dcat:keyword "HEAT WAVE" ;
+  dcat:keyword "High-resolution climate change projections" ;
+  dcat:keyword "INCOMING SOLAR RADIATION" ;
+  dcat:keyword "MAXIMUM/MINIMUM TEMPERATURE" ;
+  dcat:keyword "POTENTIAL EVAPOTRANSPIRATION" ;
+  dcat:keyword "PRECIPITATION INDICES" ;
+  dcat:keyword "PRECIPITATION" ;
+  dcat:keyword "RELATIVE HUMIDITY" ;
+  dcat:keyword "SURFACE TEMPERATURE" ;
+  dcat:keyword "TEMPERATURE INDICES" ;
+  dcat:keyword "WIND SPEED" ;
+  dcat:landingPage <https://dap.tern.org.au/thredds/catalog/CMIP5QLD/catalog.html?dataset=CMIP5QLD/Queensland_FutureClimate_Data_Availability.pdf> ;
+  dcat:spatialResolutionInMeters 50000.0 ;
+  dcat:temporalResolution "P1M"^^xsd:duration ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/0401> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/040104> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/040105> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/climatologyMeteorologyAtmosphere> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/1532e590-a62d-46e3-8d03-2351bc48166a> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/5164162a-60eb-4c94-a0f0-2caaa3bb1754> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/52347642-9786-4b59-be77-02e9f307118d> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/5a7bb095-4d12-4232-bc75-b8e82197cb92> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/6045993e-a656-40c1-853c-9db1fbb49171> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/6b3be650-6625-40b5-9b40-9e7c8a9fd336> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/a92f49f3-e2ee-4ef4-b064-39311ffb95d3> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/b29b46ad-f05f-4144-b965-5f606ce96963> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/ca820557-401e-4e5e-ac32-29fdbc0628b3> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/f50672b3-13d8-4206-b6c9-a1f9891ea470> ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dcterms:description "Modeling results were compared to observed data from Australian Gridded Climate Data (AWAP), which was spatially aggregated to 10 km over Queensland region for the 1986-2005 and 1981-2010 periods." ;
+      dqv:inDimension <http://linked.data.qld.gov.au/vocab/dq/QuantitativeAttributeAccuracy> ;
+      oa:bodyValue "Mean bias, rmse and correlation between model variables (rainfall, mean, maximum and minimum) temperature were assessed against observed data at seasonal and annual basis. Manuscript in preparation. In addition daily data was used to compute Perkins skill score of PDF distribution for rainfall, maximum and minimum temperatures." ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description "School of Biological Sciences, University of Queensland and the Science Division from the Department of Environment and Sciences (DES) developed a comprehensive set of high resolution climate change projections for Queensland to underpin the Queensland Climate Adaptation Strategy (Q-CAS).  A set of high-resolution climate change projections for RCP8.5 and RCP4.5 using CSIRO CCAM climate model. Eleven CMIP5 models were downscaled to a 50 km global resolution for 1950-2099 using bias corrected SSTs from global models. Subsequently projection at 10 km resolution were completed with CCAM stretched over Queensland region. These simulations were the first CMIP5 downscaled climate projections in Australia and consists of a large ensemble with continuous simulations for 1980 to 2099." ;
+      prov:wasAssociatedWith <https://orcid.org/0000-0003-1782-3073> ;
+    ] ;
+  qdcat:acknowledgments "Marcus Thatcher and Jack Katzfey from CSIRO Ocean and Atmosphere provided access to the CSIRO Conformal Cubic Atmospheric Model and associated data-sets. Terrestrial Ecosystem Research Network (TERN) and the Queensland Cyber Infrastructure Foundation (QCIF) provided access to data storage and assisted with publication of data. Queensland Climate Adaptation Strategy (Q-CAS) lead by the Department of Environment and Science provided financial support for modelling and data preparation." ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      geox:inCRS <https://epsg.io/4326> ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/grid> ;
+      qdcat:spatialResolution <https://gcmd.nasa.gov/kms/concept/3b36beea-9637-4213-bdbe-42e878ca14df.xml> ;
+    ] ;
+  qdcat:purpose "High-resolution climate change projection data for Queensland is provided to support the implementation of Queensland Climate Adaptation Strategy (https://www.qld.gov.au/environment/climate/climate-change/adapting). A subset of daily, monthly and seasonally averaged for selected climate variables is provided in netcdf format. In addition underlying data for the interactive Queensland Future Climate Dashboard (https://www.longpaddock.qld.gov.au/qld-future-climate/) is provided for the mean climate (rainfall, temperature, solar radiation, windspeed, relative humidity and pan evaporation), heatwaves, climate extreme indices and SPI drought and flood." ;
+.
+ex:cmip5-down
+  a owl:Ontology ;
+  dcterms:created "2020-06-16"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:source <https://github.com/EcosciencesQLD/metadata-samples/blob/master/iso-style-xml/Downscaled%20CMIP5%20climate%20projections%20for%20RCP8.5%20and%20RCP4.5.xml> ;
+  rdfs:comment "This example was handcrafted in the process of developing QDCAT" ;
+  owl:imports <http://linked.data.qld.gov.au/def/dcat-shapes> ;
+  owl:imports <https://linked.data.qld.gov.au/agent> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  owl:imports <https://linked.data.qld.gov.au/service> ;
+  owl:imports <https://linked.data.qld.gov.au/vocab> ;
+.
+ex:cmip5-netcdf
+  a dcat:Distribution ;
+  dcterms:conformsTo <https://www.iana.org/assignments/media-types/application/x-netcdf> ;
+  dcterms:description "netCDF distribution of CMIP5 downscaled data" ;
+  dcat:accessURL <https://dap.tern.org.au/thredds/catalog/CMIP5QLD/catalog.html> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/x-netcdf> ;
+.
+ex:cmip5-rec
+  a dcat:CatalogRecord ;
+  dcterms:created "2008-11-12T00:00:00"^^xsd:dateTime ;
+  dcterms:identifier "bf437edd-a533-4967-ad46-b1cb1dc3ac82" ;
+  dcterms:modified "2020-03-04T08:20:56"^^xsd:dateTime ;
+  dcterms:source <https://geonetwork.tern.org.au/geonetwork/srv/eng/catalog.search#/metadata/bf437edd-a533-4967-ad46-b1cb1dc3ac82> ;
+  rdfs:label "Catalog record for cmip5-data" ;
+  dcat:contactPoint <https://w3id.org/tern/resources/a083902d-d821-41be-b663-1d7cb33eea66> ;
+  foaf:primaryTopic ex:cmip5-data ;
+.
+<https://linked.data.qld.gov.au/service/Queensland_Spatial_Catalogue>
+  dcat:servesDataset ex:cmip5-data ;
+.

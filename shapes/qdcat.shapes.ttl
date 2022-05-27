@@ -1,0 +1,1032 @@
+# baseURI: http://linked.data.qld.gov.au/def/dcat-shapes
+# imports: http://datashapes.org/dash
+# imports: http://purl.org/dc/terms/
+# imports: http://www.w3.org/2004/02/skos/core
+# imports: http://www.w3.org/ns/adms
+# imports: http://www.w3.org/ns/dqv
+# imports: https://linked.data.qld.gov.au/def/dcat
+# prefix: qdcats
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdcats: <http://linked.data.qld.gov.au/def/dcat-shapes#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://linked.data.qld.gov.au/def/dcat-shapes>
+  a owl:Ontology ;
+  dcterms:created "2020-06-10"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:description "SHACL Shapes Graph for DCAT profile for Queensland DES catalogue" ;
+  dcterms:license <https://creativecommons.org/share-your-work/public-domain/cc0/> ;
+  dcterms:modified "2020-07-01"^^xsd:date ;
+  dcterms:publisher <https://www.des.qld.gov.au> ;
+  dcterms:title "Queensland DES profile of DCAT - SHACL Shapes Graph" ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports dcterms: ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:imports <http://www.w3.org/ns/adms> ;
+  owl:imports <http://www.w3.org/ns/dqv> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  sdo:codeRepository <https://github.com/EcosciencesQLD/dcat-profile> ,
+       <https://github.com/EcosciencesQLD/metadata-schema> ;
+.
+qdcats:AccessGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Access" ;
+  sh:order 9 ;
+.
+qdcats:Activity
+  a sh:NodeShape ;
+  sh:property [
+      sh:path dcterms:description ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path prov:hadPlan ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path prov:used ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path prov:wasAssociatedWith ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path sosa:madeBySensor ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:targetClass prov:Activity ;
+.
+qdcats:Attribution
+  a sh:NodeShape ;
+  sh:property [
+      sh:path dcat:hadRole ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path prov:agent ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:targetClass prov:Attribution ;
+.
+qdcats:BBox
+  a sh:NodeShape ;
+  sh:property [
+      sh:path qdcat:lowerLeft ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path qdcat:upperRight ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass qdcat:BBox ;
+.
+qdcats:CatalogRecord
+  a sh:NodeShape ;
+  sh:not qdcats:Dataset ;
+  sh:not qdcats:DataService ;
+  sh:not qdcats:Distribution ;
+  sh:property [
+      sh:path dcterms:created ;
+      sh:description "metadata creation date" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcterms:identifier ;
+      sh:description "metadata identifier" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:modified ;
+      sh:description "metadata update date" ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:source ;
+      sh:description "use to point to the original metadata record (in another service or catalogue)" ;
+      sh:group qdcats:RelationsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:contactPoint ;
+      sh:description "person (functional position) to contact for more information about the metadata" ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path foaf:primaryTopic ;
+      sh:description "pointer to the dcat:Resource object (i.e. the dataset or dataservice description)" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path qdcat:reviewed ;
+      sh:description "metadata review date" ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:targetClass dcat:CatalogRecord ;
+.
+qdcats:DataService
+  a sh:NodeShape ;
+  sh:not qdcats:Dataset ;
+  sh:not qdcats:CatalogRecord ;
+  sh:not qdcats:Distribution ;
+  sh:property [
+      sh:path dcterms:accessRights ;
+      sh:defaultValue <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+      sh:description "security classification" ;
+      sh:group qdcats:RightsGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:conformsTo ;
+      sh:description "indicate the API standards, e.g. ESRI GeoDatabase, OGC WMS, WFS, CS/W etc" ;
+      sh:group qdcats:AccessGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:creator ;
+      sh:description "person, functional position, or organization who initiated the service" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:description ;
+      sh:description "Textual description of the service" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:identifier ;
+      sh:description "identifier in the Qld system (might be more than one)" ;
+      sh:group qdcats:IDGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:Literal ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcterms:issued ;
+      sh:description "service launch date" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:language ;
+      sh:defaultValue <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+      sh:group qdcats:ThemeGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:license ;
+      sh:defaultValue <https://creativecommons.org/licenses/by/4.0/> ;
+      sh:description "standard license (e.g. Creative Commons)" ;
+      sh:group qdcats:RightsGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:nodeKind sh:IRI ;
+      sh:resultMessage "A license must be provided for the service" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:modified ;
+      sh:description "service update date" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+      sh:resultMessage "Last modification date should be provided" ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcterms:publisher ;
+      sh:defaultValue <https://linked.data.qld.gov.au/agent/DES> ;
+      sh:description "organization responsible for this service, given as a URI-ref to a member of the Queensland agent register" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:relation ;
+      sh:description "unspecified relationship to another service" ;
+      sh:group qdcats:RelationsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:rights ;
+      sh:description "description of rights and obligations, e.g. citation text" ;
+      sh:group qdcats:RightsGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:title ;
+      sh:datatype xsd:string ;
+      sh:group qdcats:IDGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path dcterms:type ;
+      sh:description "general classification of service type; e.g. 'download' or 'view' or 'discovery'" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path rdfs:comment ;
+      sh:description "additional information e.g. warnings" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path adms:status ;
+      sh:description "service status" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:contactPoint ;
+      sh:description "person (functional position) to contact for more information about this service, given as a URI-ref to a member of the Queensland agent register" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+      sh:resultSeverity sh:Violation ;
+    ] ;
+  sh:property [
+      sh:path dcat:endpointDescription ;
+      sh:description "technical description of this endpoint - getCapabilities document, OpenAPI (Swagger), including queriables is preferred, else a blank-node containing a dcterms:description element" ;
+      sh:group qdcats:AccessGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:BlankNodeOrIRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:endpointURL ;
+      sh:description "URI of the API for machine-machine connections" ;
+      sh:group qdcats:AccessGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "endpoint URL" ;
+      sh:nodeKind sh:IRI ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcat:keyword ;
+      sh:datatype xsd:string ;
+      sh:description "free-text keyword - repeat field as needed" ;
+      sh:group qdcats:ThemeGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:landingPage ;
+      sh:description "URI of the landing-page for human use" ;
+      sh:group qdcats:AccessGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:resultMessage "No web-page is provided for the service" ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcat:qualifiedRelation ;
+      sh:class dcat:Relationship ;
+      sh:description "typed relationship to another service" ;
+      sh:group qdcats:RelationsGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:servesDataset ;
+      sh:description "pointer to a dataset hosted by the service" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:theme ;
+      sh:description "keyword from a controlled vocabulary, denoted as a URI-reference" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path odrl:hasPolicy ;
+      sh:description "Specialized description of rights, encoded using ODRL" ;
+      sh:group qdcats:RightsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path prov:qualifiedAttribution ;
+      sh:class prov:Attribution ;
+      sh:description "other responsible party" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+    ] ;
+  sh:targetClass dcat:DataService ;
+.
+qdcats:Dataset
+  a sh:NodeShape ;
+  sh:not qdcats:CatalogRecord ;
+  sh:not qdcats:DataService ;
+  sh:not qdcats:Distribution ;
+  sh:property [
+      sh:path dcterms:accessRights ;
+      sh:description "security classification" ;
+      sh:group qdcats:RightsGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:accrualPeriodicity ;
+      sh:description "schedule for updates" ;
+      sh:group qdcats:StatusGroup ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:conformsTo ;
+      sh:description "indicate the schema, data-structure, vocabularies used by the dataset" ;
+      sh:group qdcats:QualityGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:contributor ;
+      sh:description "person, functional position, or organization who contributed to the dataset - ORCID or URI-ref to a member of the Queensland agent register is preferred" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:created ;
+      sh:description "date the dataset was created" ;
+      sh:group qdcats:StatusGroup ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:creator ;
+      sh:description "person, functional position, or organization who created the dataset - ORCID or URI-ref to a member of the Queensland agent register is preferred" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:description ;
+      sh:description "Textual description of the dataset" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:identifier ;
+      sh:description "identifier(s) in the Qld system(s) (may be more than one)" ;
+      sh:group qdcats:IDGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:isPartOf ;
+      sh:description "pointer to the series or collection to which this dataset belongs" ;
+      sh:group qdcats:RelationsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:isReferencedBy ;
+      sh:description "pointer to a report or paper that cites this dataset" ;
+      sh:group qdcats:RelationsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:issued ;
+      sh:description "date the dataset was issued or released" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:language ;
+      sh:defaultValue <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+      sh:description "dataset language" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://id.loc.gov/vocabulary/iso639-2/)|(http://id.loc.gov/vocabulary/iso639-2/)" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:license ;
+      sh:defaultValue <https://creativecommons.org/licenses/by/4.0/> ;
+      sh:description "standard license (e.g. Creative Commons)" ;
+      sh:group qdcats:RightsGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:nodeKind sh:IRI ;
+      sh:resultMessage "A license must be provided for the dataset" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:modified ;
+      sh:description "date the dataset was last updated" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:publisher ;
+      sh:description "organization responsible for this dataset, given as a URI-ref to a member of the Queensland agent register" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:relation ;
+      sh:description "pointer to a related resource (nature of the relationship unspecified)" ;
+      sh:group qdcats:RelationsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:rights ;
+      sh:description "description of rights and obligations, e.g. citation text" ;
+      sh:group qdcats:RightsGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:spatial ;
+      sh:description "spatial coverage - name or code" ;
+      sh:group qdcats:SpatialGroup ;
+      sh:xone (
+          [
+            sh:class dcterms:Location ;
+          ]
+          [
+            sh:class qdcat:BBox ;
+          ]
+          [
+            sh:class geo:Geometry ;
+          ]
+          [
+            sh:class geo:Feature ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcterms:temporal ;
+      sh:class dcterms:PeriodOfTime ;
+      sh:description "time interval covered by the dataset" ;
+      sh:group qdcats:TemporalGroup ;
+    ] ;
+  sh:property [
+      sh:path qdcat:temporalRange ;
+      sh:description "temporal resolution range" ;
+      sh:group qdcats:TemporalGroup ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+  ]
+  sh:property [
+      sh:path dcterms:title ;
+      sh:datatype xsd:string ;
+      sh:description "dataset title" ;
+      sh:group qdcats:IDGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path dcterms:type ;
+      sh:description "general classification of dataset type - 'image', 'map', 'section', 'gridded data', etc" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path qudt:hasQuantity ;
+      sh:class qudt:Quantity ;
+      sh:description "variable ('measurand') + units" ;
+      sh:group qdcats:ThemeGroup ;
+    ] ;
+  sh:property [
+      sh:path rdfs:comment ;
+      sh:description "additional information - e.g. warnings" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path adms:status ;
+      sh:description "publication status" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path dcat:contactPoint ;
+      sh:description "person (functional position) to contact for more information about this dataset, given as a URI-ref to a member of the Queensland agent register" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+      sh:resultSeverity sh:Violation ;
+    ] ;
+  sh:property [
+      sh:path dcat:distribution ;
+      sh:description "download option" ;
+      sh:group qdcats:AccessGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:resultMessage "No download options are provided for the dataset" ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcat:keyword ;
+      sh:datatype xsd:string ;
+      sh:description "free-text keyword - repeat field as needed" ;
+      sh:group qdcats:ThemeGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:landingPage ;
+      sh:description "web-page (landing page) for this dataset" ;
+      sh:group qdcats:AccessGroup ;
+      sh:nodeKind sh:IRI ;
+      sh:resultMessage "No web-page is provided for the dataset" ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcat:qualifiedRelation ;
+      sh:class dcat:Relationship ;
+      sh:description "pointer to a related resource when the nature of the relationship is specified" ;
+      sh:group qdcats:RelationsGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:spatialResolutionInMeters ;
+      sh:datatype xsd:decimal ;
+      sh:description "spatial resolution (scaled in metres)" ;
+      sh:group qdcats:SpatialGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:temporalResolution ;
+      sh:datatype xsd:duration ;
+      sh:description "time precision or spacing" ;
+      sh:group qdcats:TemporalGroup ;
+    ] ;
+  sh:property [
+      sh:path dcat:theme ;
+      sh:description "topic or theme - keyword from a controlled vocabulary, denoted by a URI-reference" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path dqv:hasQualityAnnotation ;
+      sh:class dqv:QualityAnnotation ;
+      sh:description "data-quality expressed in text" ;
+      sh:group qdcats:QualityGroup ;
+    ] ;
+  sh:property [
+      sh:path dqv:hasQualityMeasurement ;
+      sh:class dqv:QualityMeasurement ;
+      sh:description "data-quality expressed numerically, e.g. confidence" ;
+      sh:group qdcats:QualityGroup ;
+    ] ;
+  sh:property [
+      sh:path odrl:hasPolicy ;
+      sh:description "Specialized description of rights, encoded using ODRL" ;
+      sh:group qdcats:RightsGroup ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path prov:qualifiedAttribution ;
+      sh:class prov:Attribution ;
+      sh:description "other responsible party" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+    ] ;
+  sh:property [
+      sh:path prov:wasGeneratedBy ;
+      sh:class prov:Activity ;
+      sh:description "description of the dataset provenance" ;
+      sh:group qdcats:RelationsGroup ;
+    ] ;
+  sh:property [
+      sh:path qdcat:acknowledgments ;
+      sh:description "acknowledgments (text)" ;
+      sh:group qdcats:ResponsibilitiesGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path qdcat:hasSpatialRepresentation ;
+      sh:class qdcat:SpatialRepresentation ;
+      sh:description "Details of spatial representation" ;
+      sh:group qdcats:SpatialGroup ;
+    ] ;
+  sh:property [
+      sh:path qdcat:purpose ;
+      sh:description "purpose" ;
+      sh:group qdcats:ThemeGroup ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:targetClass dcat:Dataset ;
+.
+qdcats:Distribution
+  a sh:NodeShape ;
+  sh:not qdcats:Dataset ;
+  sh:not qdcats:DataService ;
+  sh:not qdcats:CatalogRecord ;
+  sh:or (
+      [
+        sh:property [
+            sh:path dcat:mediaType ;
+            sh:description "primary format - MIME-type" ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path dcterms:format ;
+            sh:datatype xsd:string ;
+            sh:description "primary format - name" ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+  sh:property [
+      sh:path dcterms:conformsTo ;
+      sh:description "indicate the schema, data-structure, vocabularies used by the dataset" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:description ;
+      sh:description "textual description of downloadable file" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcterms:license ;
+      sh:defaultValue <https://creativecommons.org/licenses/by/4.0/> ;
+      sh:description "standard license (e.g. Creative Commons)" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcterms:rights ;
+      sh:description "description of rights and obligations, e.g. citation text" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path rdfs:comment ;
+      sh:description "additional information" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      sh:path dcat:accessService ;
+      sh:description "pointer to the description (catalogue entry) of a service or API from where this dataset may be accesses" ;
+      sh:name "access service" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:accessURL ;
+      sh:description "URL of a service from where data can be queried or downloaded" ;
+      sh:name "access URL" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:byteSize ;
+      sh:datatype xsd:decimal ;
+      sh:description "exact or approximate file size in bytes" ;
+      sh:maxCount 1 ;
+      sh:name "byte size" ;
+    ] ;
+  sh:property [
+      sh:path dcat:compressFormat ;
+      sh:description "compression format" ;
+      sh:name "compressed format" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:downloadURL ;
+      sh:description "URL to download a file directly" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "download URL" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:packageFormat ;
+      sh:description "Multi-file packaging format, e.g. TAR archive" ;
+      sh:name "package format" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+      sh:path dcterms:title ;
+      sh:datatype xsd:string ;
+      sh:description "distribution title" ;
+      sh:group qdcats:IDGroup ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:targetClass dcat:Distribution ;
+.
+qdcats:Geometry
+  a sh:NodeShape ;
+  sh:property [
+      sh:path qdcat:asGeoJSON ;
+      sh:datatype rdf:JSON ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetClass geo:Geometry ;
+.
+qdcats:IDGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Identity" ;
+  sh:order 0 ;
+.
+qdcats:Location
+  a sh:NodeShape ;
+  sh:not qdcats:PeriodOfTime ;
+  sh:targetClass dcterms:Location ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path geo:hasGeometry ;
+            sh:class geo:Geometry ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path dcat:centroid ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path dcat:bbox ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path qdcat:lowerLeft ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+        sh:property [
+            sh:path qdcat:upperRight ;
+            sh:datatype rdf:JSON ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+.
+qdcats:PeriodOfTime
+  a sh:NodeShape ;
+  sh:not qdcats:Location ;
+  sh:property [
+      sh:path dcat:endDate ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:property [
+      sh:path dcat:startDate ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+  sh:targetClass dcterms:PeriodOfTime ;
+.
+qdcats:QualityAnnotation
+  a sh:NodeShape ;
+  sh:property [
+      sh:path dqv:inDimension ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path oa:bodyValue ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:targetClass dqv:QualityAnnotation ;
+.
+qdcats:QualityGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Quality" ;
+  sh:order 4 ;
+.
+qdcats:QualityMeasurement
+  a sh:NodeShape ;
+  sh:property [
+      sh:path dqv:inDimension ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass dqv:QualityMeasurement ;
+.
+qdcats:Quantity
+  a sh:NodeShape ;
+  sh:property [
+      sh:path qudt:hasQuantityKind ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path qudt:unit ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:targetClass qudt:Quantity ;
+.
+qdcats:RelationsGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Relations" ;
+  sh:order 5 ;
+.
+qdcats:Relationship
+  a sh:NodeShape ;
+  sh:property [
+      sh:path dcterms:relation ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path dcat:hadRole ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:targetClass dcat:Relationship ;
+.
+qdcats:ResponsibilitiesGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Responsibilities" ;
+  sh:order 6 ;
+.
+qdcats:RightsGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Rights" ;
+  sh:order 8 ;
+.
+qdcats:SpatialGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Spatial content" ;
+  sh:order 3 ;
+.
+qdcats:SpatialRepresentation
+  a sh:NodeShape ;
+  sh:property [
+      sh:path geox:inCRS ;
+      rdfs:comment "matches EPSG codes" ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://epsg.io/)|(https://epsg.org/)" ;
+    ] ;
+  sh:property [
+      sh:path dcterms:type ;
+      sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
+    ] ;
+  sh:property [
+      sh:path qdcat:spatialResolution ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass qdcat:SpatialRepresentation ;
+.
+qdcats:StatusGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Status" ;
+  sh:order 7 ;
+.
+qdcats:TemporalGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Temporal content" ;
+  sh:order 2 ;
+.
+qdcats:ThemeGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Thematic description" ;
+  sh:order 1 ;
+.

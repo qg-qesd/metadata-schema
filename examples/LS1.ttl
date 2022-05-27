@@ -1,0 +1,98 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/ls1
+# imports: http://linked.data.qld.gov.au/agent
+# imports: http://linked.data.qld.gov.au/vocab
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix agent: <http://linked.data.qld.gov.au/agent#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qagent: <https://linked.data.qld.gov.au/agent/> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdef: <https://linked.data.qld.gov.au/def/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:LS1
+  a dcat:Dataset ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+  dcterms:accrualPeriodicity <http://registry.it.csiro.au/def/isotc211/MD_MaintenanceFrequencyCode/irregular> ;
+  dcterms:creator qagent:DES ;
+  dcterms:description "These datasets describe soil attributes suitable for inclusion in the TERN Soil and Landscape Grid of Australia (http://www.clw.csiro.au/aclep/soilandlandscapegrid). Eleven attributes are available in raster format at a resolution of 3 arc-seconds (approximately 90m). These products are generated using spatial modelling and digital soil mapping techniques. At present, these products cover the extent of the Burdekin River catchment only." ;
+  dcterms:identifier "{54CD3FEE-BCA6-43FC-A528-6017E2DA63D3}" ;
+  dcterms:issued "2016-01-14"^^xsd:date ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+  dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher qagent:DES ;
+  dcterms:rights "&copy; State of Queensland (Department of Environment and Science) 2020" ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[144.07, -24.45]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[148.72, -18.12]}"^^rdf:JSON ;
+    ] ;
+  dcterms:temporal [
+      a dcterms:PeriodOfTime ;
+      dcat:endDate "2016"^^xsd:gYear ;
+      dcat:startDate "2015"^^xsd:gYear ;
+    ] ;
+  dcterms:title "Soil and Landscape Grid Digital Soil Attribute Maps for Queensland series" ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/CI_PresentationFormCode/imageDigital> ;
+  rdfs:comment "Available attributes comprise: * Electrical Conductivity dS/m (ECD) * Clay % (CLY) * Fine Sand % (FND) * Coarse Sand % (KND) * Silt % (SLT) * Permanent Wilting Point Soil Moisture % (WPT) * Effective Cation Exchange Capacity meq/100g (ECE) * Depth to Rock m (D2R) * Calcium/Magnesium Ratio % (CMR) * Depth of Surface Soil m (DEA) * Exchangeable Sodium Percentage % (ESP). Each soil attribute product is a collection of 5 depth slices. Each depth raster has an upper and lower uncertainty limit raster associated with it. The depths provided are 0-5cm, 5-15cm, 15-30cm, 30-60cm & 60-100cm, consistent with the specifications of the GlobalSoilMap (http://www.globalsoilmap.net). These products were developed using datasets held in the SALI (Soil and Land Information) database (DSITI & DNRM). The maps were made by using spatial modelling and digital soil mapping (DSM; McBratney et al., 2003) techniques to produce a fine-resolution 3-arc-second grid of soil attribute values and their uncertainties, across all of the Burdekin River Basin (130,000 km2)." ;
+  adms:status <http://registry.it.csiro.au/def/isotc211/MD_ProgressCode/onGoing> ;
+  dcat:contactPoint qagent:land-resource-officer ;
+  dcat:distribution ex:LS1-d ;
+  dcat:keyword "SOIL" ;
+  dcat:keyword "Sciences" ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/geoscientificInformation> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/soil> ;
+  dcat:theme <https://linked.data.qld.gov.au/def/group/sciences> ;
+  odrl:hasPolicy [
+      a odrl:Policy ;
+      dcterms:description "Based on or contains data provided by the State of Queensland 2020. The State makes no representations or warranties in relation to the supplied data, and you agree that, to the extent permitted by law, all warranties relating to accuracy, reliability, completeness, currency or suitability for any particular purpose and all liability for any loss, damage or costs (including consequential damage) incurred in any way (including but not limited to that arising from negligence) in connection with any use of or reliance on the supplied data are excluded or limited. You agree to continually indemnify the State (including its officers and employees) against any loss, cost, expense, damage and liability of any kind (including consequential damage and liability in negligence) arising directly or indirectly from or related to any claim relating to your use of the supplied data or any product made from the supplied data." ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/resourceProvider> ;
+      prov:agent qagent:qspatial ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description "The soil attribute maps are generated using spatial modelling and digital soil mapping techniques. Soil inventory: Queensland soil site data originates from the SALI database, a compilation of various historical soil surveys. This database contains morphological and laboratory data for all the soil sites. Data Modelling: A raster stack of all covariatesâcomprising information on climate, gamma radiometrics, topography, soil mineralogy and vegetationâwas generated and the target variable (each soil property and depth) individually intersected with the covariate values to provide the calibration and validation data. All modelling was undertaken in âRâ (R Core Team 2014). Each map has been been created using a spatial regression model, based on the calibration and validation data. The covariates were used to describe the spatial trend, through a random-forest model (Liaw and Wiener, 2002). At each pixel, the spatial trend was computed, and then adjusted up or down by a kriging estimate of the residuals of the response variable. Pixel values represent the predicted value for a 100-m x 100-m area about the pixel centre. The uncertainty layers quantify the lower and upper bounds on the predicted value, which falls out as part of the prediction process when using spatial regression. References: Specifications: Version 1 GlobalSoilMap.net products, Release 2.1, viewed 12/09/2014, <http://www.globalsoilmap.net/specifications>. Biggs, A.J.W., Kidson, E.M., Searle, R.D., Wilson, P.L., Slater, B.K., Grundy, M.J., Heiner, I.L., Smith, C.D. and Sweeny, C. 2000. \"SALI - The soil and land information system for Queensland\". In Proceedings of the NZSSS/ASSSI Soil 2000 Conference. Canterbury, New Zealand. Liaw, A., Wiener, M. 2002, Classification and regression by randomForest. R News, 2/3, 18-22. URL http://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf. McBratney, A.B., Mendonca Santos, M.L. and Minasny, B. 2003, 'On digital soil mapping', Geoderma, vol. 117, no. 1-2, pp. 3-52. <http://dx.doi.org/10.1016/S0016-7061(03)00223-4>. R Core Team 2014, R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL http://www.R-project.org/." ;
+    ] ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      geox:inCRS <https://epsg.io/4326> ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/grid> ;
+      dcat:spatialResolutionInMeters "90"^^xsd:decimal ;
+    ] ;
+.
+ex:LS1-d
+  a dcat:Distribution ;
+  rdfs:label "LS1-distribution" ;
+  dcat:accessService <https://linked.data.qld.gov.au/service/Queensland_Spatial_Catalogue> ;
+.
+ex:ls1
+  a owl:Ontology ;
+  dcterms:created "2020-06-16"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:source <https://github.com/EcosciencesQLD/metadata-samples/blob/master/iso-style-xml/LS1.%20Soil%20and%20Landscape%20Grid%20Digital%20Soil%20Attribute%20Maps%20for%20Queensland%20series.xml> ;
+  rdfs:comment "This example was handcrafted in the process of developing QDCAT" ;
+  owl:imports <http://linked.data.qld.gov.au/agent> ;
+  owl:imports <http://linked.data.qld.gov.au/vocab> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  owl:imports <https://linked.data.qld.gov.au/service> ;
+.
+<https://linked.data.qld.gov.au/service/Queensland_Spatial_Catalogue>
+  dcat:servesDataset ex:LS1 ;
+.

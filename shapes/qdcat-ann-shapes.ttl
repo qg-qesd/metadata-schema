@@ -1,0 +1,61 @@
+# baseURI: http://linked.data.qld.gov.au/def/qdcat-ann-shapes
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdcats: <http://linked.data.qld.gov.au/def/dcat-shapes#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qdcats:Dataset-anns 
+  rdfs:comment "NodeShape for Dataset properties that are expected to take literal values" ;
+  a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path qdcat:altTitle ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcterms:description ;
+    sh:nodeKind sh:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path qdcat:purpose ;
+    sh:nodeKind sh:Literal ;
+  ] ;
+  sh:property [
+    sh:path rdfs:comment ;
+    sh:nodeKind sh:Literal ;
+  ] ;
+  sh:property [
+    sh:path dcat:keyword ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path qdcat:acknowledgments ;
+    sh:nodeKind sh:Literal ;
+  ] ;
+  sh:property [
+    sh:path dcterms:rights ;
+    sh:nodeKind sh:Literal ;
+  ] ;
+.

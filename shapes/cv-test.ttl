@@ -1,0 +1,53 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/cv
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:cv-data
+  a dcat:Dataset ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_RestrictionCode/licence> ;
+  dcterms:accrualPeriodicity <http://registry.it.csiro.au/def/isotc211/MD_MaintenanceFrequencyCode/asNeeded> ;
+  dcterms:creator <https://orcid.org/0000-0003-1782-3073> ;
+  dcterms:creator <https://w3id.org/tern/resources/751d1c73-1504-4852-b2c1-cb0c8f8260b2> ;
+  dcterms:creator <https://w3id.org/tern/resources/7c29af6e-e185-4f00-bdd1-2be4bd9b888a> ;
+  dcterms:creator <https://w3id.org/tern/resources/90021031-647f-4b03-81d8-0cf8d00c72bd> ;
+  dcterms:creator <https://w3id.org/tern/resources/edba8468-e0a8-4df0-a7b6-fb4b6420e030> ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://w3id.org/tern/resources/a083902d-d821-41be-b663-1d7cb33eea66> ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/CI_PresentationFormCode/documentDigital> ;
+  adms:status <http://registry.it.csiro.au/def/isotc211/MD_ProgressCode/onGoing> ;
+  dcat:contactPoint <https://orcid.org/0000-0003-1782-3073> ;
+  dcat:distribution ex:cmip5-netcdf ;
+  dcat:landingPage <https://dap.tern.org.au/thredds/catalog/CMIP5QLD/catalog.html?dataset=CMIP5QLD/Queensland_FutureClimate_Data_Availability.pdf> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/0401> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/040104> ;
+  dcat:theme <http://purl.org/au-research/vocabulary/anzsrc-for/2008/040105> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/climatologyMeteorologyAtmosphere> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/1532e590-a62d-46e3-8d03-2351bc48166a> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/5164162a-60eb-4c94-a0f0-2caaa3bb1754> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/52347642-9786-4b59-be77-02e9f307118d> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/5a7bb095-4d12-4232-bc75-b8e82197cb92> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/6045993e-a656-40c1-853c-9db1fbb49171> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/6b3be650-6625-40b5-9b40-9e7c8a9fd336> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/a92f49f3-e2ee-4ef4-b064-39311ffb95d3> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/b29b46ad-f05f-4144-b965-5f606ce96963> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/ca820557-401e-4e5e-ac32-29fdbc0628b3> ;
+  dcat:theme <https://gcmdservices.gsfc.nasa.gov/kms/concept/f50672b3-13d8-4206-b6c9-a1f9891ea470> ;
+.

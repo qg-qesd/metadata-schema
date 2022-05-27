@@ -1,0 +1,54 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/ann
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:annotations-data
+  a dcat:Dataset ;
+  dcterms:description "Dynamically downscaled high-resolution (~10 km spatial resolution)  climate change projection data for Queensland. Downscaling was completed using CSIRO Conformal Cubic Atmospheric Model (CCAM) for two RCPs (RCP4.5 and RCP8.5) from 11 CMIP5 global coarse resolution models for period 1980-2099. The Queensland Future Climate Dashboard (www.longpaddock.qld.gov.au/qld-future-climate/ ) provides easy access to climate projection for Queensland. The dashboard allows users to explore, visualize and download the latest high-resolution climate modelling data for specific regions, catchments, disaster areas, local government areas and grid squares. Underlying data is provided via TERN for easy access for each of 11 downscaled models. The Queensland Future Climate Dataset provides high resolution data for over 30 different metrics grouped in six climate themes: (i) Mean Climate; (ii) Heatwaves; (iii) Extreme Temperature Indices; (iv) Extreme Precipitation Indices; (v) Droughts; and (vi) Floods. In addition selected variables at daily and monthly intervals are also available." ;
+  dcterms:identifier "doi:10.25901/5e3ba30f141b7"^^xsd:anyURI ;
+  dcterms:title "Queensland Future Climate Dataset – Downscaled CMIP5 climate projections for RCP8.5 and RCP4.5" ;
+  rdfs:comment "Description of cmip5-downscaled dataset" ;
+  owl:versionInfo "1.0.2" ;
+  dcat:keyword "24 HOUR PRECIPITATION AMOUNT" ;
+  dcat:keyword "ATMOSPHERIC SCIENCES" ;
+  dcat:keyword "CMIP5" ;
+  dcat:keyword "Climate Change Processes" ;
+  dcat:keyword "Climate Extremes" ;
+  dcat:keyword "Climatology (excl. Climate Change Processes)" ;
+  dcat:keyword "DROUGHT INDICES" ;
+  dcat:keyword "Daily, monthly and seasonal frequency" ;
+  dcat:keyword "EXTREME WEATHER" ;
+  dcat:keyword "HEAT WAVE" ;
+  dcat:keyword "High-resolution climate change projections" ;
+  dcat:keyword "INCOMING SOLAR RADIATION" ;
+  dcat:keyword "MAXIMUM/MINIMUM TEMPERATURE" ;
+  dcat:keyword "POTENTIAL EVAPOTRANSPIRATION" ;
+  dcat:keyword "PRECIPITATION INDICES" ;
+  dcat:keyword "PRECIPITATION" ;
+  dcat:keyword "RELATIVE HUMIDITY" ;
+  dcat:keyword "SURFACE TEMPERATURE" ;
+  dcat:keyword "TEMPERATURE INDICES" ;
+  dcat:keyword "WIND SPEED" ;
+  qdcat:acknowledgments "Marcus Thatcher and Jack Katzfey from CSIRO Ocean and Atmosphere provided access to the CSIRO Conformal Cubic Atmospheric Model and associated data-sets. Terrestrial Ecosystem Research Network (TERN) and the Queensland Cyber Infrastructure Foundation (QCIF) provided access to data storage and assisted with publication of data. Queensland Climate Adaptation Strategy (Q-CAS) lead by the Department of Environment and Science provided financial support for modelling and data preparation." ;
+  qdcat:purpose "High-resolution climate change projection data for Queensland is provided to support the implementation of Queensland Climate Adaptation Strategy (https://www.qld.gov.au/environment/climate/climate-change/adapting). A subset of daily, monthly and seasonally averaged for selected climate variables is provided in netcdf format. In addition underlying data for the interactive Queensland Future Climate Dashboard (https://www.longpaddock.qld.gov.au/qld-future-climate/) is provided for the mean climate (rainfall, temperature, solar radiation, windspeed, relative humidity and pan evaporation), heatwaves, climate extreme indices and SPI drought and flood." ;
+.
