@@ -1,0 +1,263 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/regional-ecosystem
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+# prefix: regional-ecosystem
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix format: <https://linked.data.qld.gov.au/def/format/> .
+@prefix freq: <https://linked.data.qld.gov.au/def/freq/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qagent: <https://linked.data.qld.gov.au/agent/> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdef: <https://linked.data.qld.gov.au/def/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix regional-ecosystem: <https://linked.data.qld.gov.au/dataset/regional-ecosystem#> .
+@prefix sdo: <https://schema.org/> .
+@prefix service: <https://linked.data.qld.gov.au/service/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:reg-eco
+  a dcat:Dataset ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_RestrictionCode/copyright> ;
+  dcterms:accrualPeriodicity <http://registry.it.csiro.au/def/isotc211/MD_MaintenanceFrequencyCode/asNeeded> ;
+  dcterms:description "Provides regional ecosystem and vegetation management status information to support the Regulated Vegetation Management map. Based on version 11.0 regional ecosystem mapping.Whole of state dataset can be downloaded in Geodatabase format only." ;
+  dcterms:issued "2020-05-28"^^xsd:date ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:rights "This material is licensed under a Creative Commons - Attribution 4.0 International licence. The Department of Natural Resources, Mines and Energy requests attribution in the following manner: © State of Queensland (Department of Natural Resources, Mines and Energy) 2020. Updated data available at http://qldspatial.information.qld.gov.au/catalogue/ ." ;
+  dcterms:source "VEGMGT.QLD_VEG_RVMRE_CODE_CUR" ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[138, -29.179266]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[153.577908, -8.998516]}"^^rdf:JSON ;
+    ] ;
+  dcterms:temporal [
+      a dcterms:PeriodOfTime ;
+      dcat:endDate "2020-05-28"^^xsd:date ;
+      dcat:startDate "2020-05-28"^^xsd:date ;
+    ] ;
+  dcterms:title "Vegetation management regional ecosystem map - version 11.0 - By Area Of Interest" ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/CI_PresentationFormCode/documentDigital> ;
+  rdfs:comment """The map incorporates elements of the regulated vegetation management map and the regional ecosystem mapping version 11.0. &#13;
+The 2017 Remnant Regional Ecosystem maps and data are based on extensive field survey, analysis of aerial photographs, satellite imagery and detailed site data, and assessment of other data such as geology and soil mapping and historical survey plans. The survey and mapping of regional ecosystems of Queensland provides information and maps for business, landholders, regional groups, non-government organizations, government departments, local government and industry for planning and management of the natural environment, developments and vegetation restoration. &#13;
+&#13;
+The methodology for surveying and mapping regional ecosystems and vegetation communities in Queensland version 5.0 - March 2019.&#13;
+&#13;
+The pre-clearing regional ecosystem maps and data are based on extensive field survey, analysis of aerial photographs, satellite imagery and detailed site data, and assessment of other data such as geology and soil mapping and historical survey plans. The survey and mapping of regional ecosystems of Queensland provides information and maps for business, landholders, regional groups, non-government organizations, government departments, local government and industry for planning and management of the natural environment, developments and vegetation restoration.&#13;
+&#13;
+The positional accuracy of regional ecosystem data, mapped at a scale of 1:100,000, is 100 metres. The map scale of 1:50,000 applies to the Wet Tropics and part of Southeastern Queensland and map amendments areas. The map scale of 1:25,000 applies to the Brisbane City Council area within Southeastern Queensland.  Version 10.1 regional ecosystem descriptions, are available for download on the Queensland Government website. (Search on: Regional Ecosystem Description Database).""" ;
+  adms:status <http://registry.it.csiro.au/def/isotc211/MD_ProgressCode/completed> ;
+  dcat:contactPoint qagent:SSIOVDM ;
+  dcat:distribution ex:reg-eco-fgdb ;
+  dcat:distribution ex:reg-eco-gpkg ;
+  dcat:distribution ex:reg-eco-kmz ;
+  dcat:distribution ex:reg-eco-shp ;
+  dcat:distribution ex:reg-eco-tab ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/biota> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/boundaries> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/environment> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/farming> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/geoscientificInformation> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/inlandWaters> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/location> ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/planningCadastre> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/agriculture> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/agriculture-crops> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/agriculture-horticulture> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/agriculture-irrigation> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/agriculture-livestock> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/boundaries> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/boundaries-administrative> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/boundaries-biophysical> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna-exotic> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna-insects> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna-invertebrates> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna-native> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/fauna-vertebrates> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/flora> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/flora-exotic> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/flora-native> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/forests> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/forests-agriforestry> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/forests-natural> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/forests-plantation> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-cadastre> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-cover> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-geodesy> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-geography> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-ownership> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-topography> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-use> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/land-valuation> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/vegetation> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/vegetation-floristic> ;
+  dcat:theme <https://linked.data.gov.au/def/ANZLIC-search/vegetation-structural> ;
+  dcat:theme <https://linked.data.qld.gov.au/def/group/sciences> ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dqv:inDimension <https://linked.data.qld.gov.au/vocab/dq/AbsoluteExternalPositionalAccuracy> ;
+      oa:bodyValue """Polygons 100m; Sites +/- 10m. Positional accuracy of polygons is noted in the field 'L', which is a reliability code and given as either A, B or C for high, moderate and low confidence in accuracy of polygon boundaries. The level is determined on the basis of the reliability of interpretation of photopattern /reflectance of remotely sensed data (aerial photographs and rectified Landsat TM imagery) and on the positioning and frequency of sites and traverses.&#13;
+Reliability code is contained in the field 'V' which refer to vegetation attributes - RE (regional ecosystem) and PERCENT accuracy and given as either A, B or C for high, moderate and low confidence in accuracy of polygon attributes.&#13;
+&#13;
+Logical consistency has been determined through the following:&#13;
+All polygons visually checked at 1:100,000 scale and by topological consistency checks.&#13;
+A test of consistency for regional ecosystem unit values (RE and PERCENT) between the pre-clearing and remnant coverages.""" ;
+    ] ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dqv:inDimension <https://linked.data.qld.gov.au/vocab/dq/CompletenessCommission> ;
+      oa:bodyValue "This dataset is to a standard determined as fit for the purpose for which it was collected." ;
+    ] ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dqv:inDimension <https://linked.data.qld.gov.au/vocab/dq/CompletenessOmission> ;
+      oa:bodyValue "Complete. This dataset contains supporting information to accompany the Regulated Vegetation Management map under the provisions of the Vegetation Management Act 1999. The map incorporates property maps of assessable vegetation current at the time of compilation. This map will be updated on a monthly cycle to ensure property maps of assessable vegetation are shown on the regulated vegetation management map following their certification." ;
+    ] ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dqv:inDimension <https://linked.data.qld.gov.au/vocab/dq/ConceptualConsistency> ;
+      oa:bodyValue "The data is to a standard determined as fit for the purpose for which it was collected." ;
+    ] ;
+  dqv:hasQualityAnnotation [
+      a dqv:QualityAnnotation ;
+      dqv:inDimension <https://linked.data.qld.gov.au/vocab/dq/NonQuantitativeAttributeCorrectness> ;
+      oa:bodyValue "The data has been sourced from the regulated vegetation management map and the remnant regional ecosystem mapping and remnant cover mapping version 11.0. Regional ecosystem information for both remnant and high value regrowth vegetation" ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/custodian> ;
+      prov:agent qagent:EDLP ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/owner> ;
+      prov:agent qagent:EDLP ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/resourceProvider> ;
+      prov:agent qagent:MMS ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description """The pre-clearing vegetation is simply the vegetation before clearing. Mapping of pre-clearing vegetation is based on the interpretation of landscape as depicted on aerial photos or satellite imagery (Landsat, Spot), and ground truthed on a limited sample of known points. The Queensland Herbarium uses the 1:80,000 black and white 1960s photos as the standard imagery for mapping pre-clearing vegetation. The structural classification system is based on Walker and Hopkins (1990).&#13;
+&#13;
+Where vegetation has already been cleared on these aerial photographs, the pre-clearing vegetation is reconstructed by the botanist using available information, including landform, soils, geology, field data (remnant roadside native vegetation) and ecological knowledge. In addition, historical survey records of vegetation types and older aerial photos (if they exist) are used extensively in this reconstruction.&#13;
+&#13;
+Technical processes: Vegetation boundaries are drawn over aerial photographs and digitised. Boundaries are referenced primarily to rectified Landsat imagery (SLATS, DES) or to orthophotos if available.  Field survey has provided partial verification of boundaries.""" ;
+      rdfs:seeAlso "Related polygon coverages include: pre-clearing vegetation communities and regional ecosystems, 1997, 1999, 2000, 2001, 2003, 2005, 2006, 2006b, 2009, 2011, 2013, 2015 and 2017 remnant regional ecosystems." ;
+      prov:used """General Source Data: 1:80,000 B&amp;W 1960s aerial photography, Landsat TM imagery rectified to 1:100,000 topographic maps, geology, soils and land systems data, topographic maps, field survey, existing field site data and existing mapped data (digital and hard-copy). Other reference data: National Estates (QLD), DCDB.&#13;
+&#13;
+Primary data source for the Wet Tropics bioregion 1:50,000 scale regional ecosystem mapping:&#13;
+• Vegetation of the Wet Tropics of Queensland bioregion. Wet Tropics Management Authority, Cairns, Stanton J.P. and Stanton, D.J. (2005).&#13;
+&#13;
+Additional Source Data for SEQ 1:50,000 scale mapping: 1:100,000 scale geological mapping NR&amp;M (2002) and extensive field data for all revisions.&#13;
+• Ipswich, Mt Lindesay, Esk &amp; Helidon sheets revised (2000-2001) using 1:25,000 colour aerial photography (1994-1997). &#13;
+• Gatton Shire revision using 1:25,000 colour aerial photography (1997) and Gatton Shire Remnant vegetation mapping, QPWS, Grimshaw (2001). &#13;
+• Crows Nest Shire revision using 1:25,000 colour aerial photography (2000). &#13;
+• Boonah Shire revision using 1:25,000 vegetation survey, Olsen (2001). &#13;
+• Laidley Shire revision using 1:25,000 colour aerial photography (1997) and 1:50,000 vegetation survey, Lockyer Landcare (1997). &#13;
+• Noosa Shire revision using 1:25,000 colour aerial photography (1997 &amp; 2000) and Noosa Shire 1:25,000 vegetation survey, Burrows (2000).  &#13;
+• Pine Rivers Shire revision using 1:25,000 colour aerial photography (1997), Pine Rivers Shire regional ecosystem database (2001) and the Brisbane Forest Park, 1:25,000 vegetation survey, Young (1996).  &#13;
+• Logan City revision using 1:25,000 Logan City vegetation survey, Ecograph (2000). &#13;
+• Redland Shire revision using 1:25,000 Redland Shire vegetation survey, Olsen (2001).    &#13;
+• Gold Coast City Council revision using 1:10,000 digital ortho-photography (2001) and QPWS Fire Management Strategy (2001).&#13;
+• Beaudesert Shire revision using 1:25,000 colour aerial photography (1997) and Beaudesert Shire vegetation survey, Chenoweth EPLA (2002) and QPWS Fire Management Strategy (2001).&#13;
+• Cooloola Shire revision using 1:40,000 colour aerial photography (1996) and Cooloola Shire vegetation survey, Lowe (2002).  &#13;
+• Maroochy Shire revision using 1:25,000 colour aerial photography (1997) and Maroochy Shire vegetation survey, MSC (2002). &#13;
+• Caloundra City Council revision using 1:25,000 colour aerial photography (1997).  &#13;
+&#13;
+Additional Source Data for SEQ 1:25,000 scale mapping: &#13;
+• Brisbane City revision using 1:25,000 scale colour aerial photography, 2013 10cm project digital ortho-rectified aerial photography, Brisbane City land zone mapping in conjunction with 1:100,000 scale geological mapping NR&amp;M (2015) and extensive field data.&#13;
+• Gold Coast City remnant extent revision using 2017 10cm project digital ortho-rectified aerial photography and 2014 LiDAR.
+""" ;
+    ] ;
+  qdcat:altTitle "Vegetation management regional ecosystem map" ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      geox:inCRS <https://epsg.io/4283> ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/vector> ;
+    ] ;
+  qdcat:purpose "This map provides supporting information for assessments under the Vegetation Management Act. " ;
+.
+ex:reg-eco-fgdb
+  a dcat:Distribution ;
+  dcterms:format "ESRI file geodatabase FGDB" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Vegetation%20management%20regional%20ecosystem%20map%20-%20version%2011.0%22> ;
+  dcat:byteSize 1200.0 ;
+.
+ex:reg-eco-gpkg
+  a dcat:Distribution ;
+  dcterms:format "Geopackage version 1.0, 1.1, or 1.2 file GPKG" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Vegetation%20management%20regional%20ecosystem%20map%20-%20version%2011.0%22> ;
+  dcat:byteSize 1200.0 ;
+.
+ex:reg-eco-kmz
+  a dcat:Distribution ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Vegetation%20management%20regional%20ecosystem%20map%20-%20version%2011.0%22> ;
+  dcat:byteSize 1200.0 ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.google-earth.kmz> ;
+.
+ex:reg-eco-record
+  a dcat:CatalogRecord ;
+  dcterms:accessRights <https://linked.data.qld.gov.au/def/security/unclassified> ;
+  dcterms:identifier "{d8d5a86a-bc83-41e1-95e9-d803d29aa27a}" ;
+  dcterms:isPartOf "{C56D8C99-4745-4699-B315-F3D98A2A6845}" ;
+  dcterms:issued "2020-05-28"^^xsd:date ;
+  dcat:contactPoint qagent:SSIOVDM ;
+  foaf:primaryTopic ex:reg-eco ;
+.
+ex:reg-eco-shp
+  a dcat:Distribution ;
+  dcterms:format "ESRI Shape file SHP" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Vegetation%20management%20regional%20ecosystem%20map%20-%20version%2011.0%22> ;
+  dcat:byteSize 1200.0 ;
+.
+ex:reg-eco-tab
+  a dcat:Distribution ;
+  dcterms:format "MapInfo Tab file TAB" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Vegetation%20management%20regional%20ecosystem%20map%20-%20version%2011.0%22> ;
+  dcat:byteSize 1200.0 ;
+.
+ex:regional-ecosystem
+  a owl:Ontology ;
+  dcterms:created "2020-06-21" ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:modified "2020-06-22" ;
+  dcterms:source <https://github.com/EcosciencesQLD/metadata-samples/blob/master/iso-style-xml/Vegetation_management_regional_ecosystem_map.xml> ;
+  owl:imports <https://linked.data.qld.gov.au/agent> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  owl:imports <https://linked.data.qld.gov.au/service> ;
+  owl:imports <https://linked.data.qld.gov.au/vocab> ;
+.
+service:Queensland_Spatial_Catalogue
+  dcterms:description """QSpatial, the Queensland Spatial Catalogue, gives the public access to view and download geospatial data and information.
+
+QSpatial includes data from 11 participating Queensland Government agencies and displays metadata about downloadable data, live data and web map services, as well as information about offline resources.""" ;
+  rdfs:comment "From the Queensland Spatial Catalogue available as ESRI Shape file SHP, MapInfo Tab file TAB, ESRI file geodatabase FGDB, Google file KMZ, and Geopackage version 1.0, 1.1, or 1.2 file GPKG" ;
+  dcat:servesDataset ex:reg-eco ;
+.

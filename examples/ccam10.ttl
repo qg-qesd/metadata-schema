@@ -1,0 +1,142 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/ccam10
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+# prefix: ccam10
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix ccam10: <https://linked.data.qld.gov.au/dataset/ccam10#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix license: <https://linked.data.qld.gov.au/def/license/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix security: <https://linked.data.qld.gov.au/def/security/> .
+@prefix theme: <https://linked.data.gov.au/def/qld-qsic/theme/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://linked.data.qld.gov.au/agent/longpaddock>
+  a vcard:Kind ;
+  a prov:Agent ;
+  vcard:email <mailto:longpaddock@qld.gov.au> ;
+.
+<https://linked.data.qld.gov.au/dataset/ccam10>
+  a owl:Ontology ;
+  owl:imports <https://linked.data.qld.gov.au/agent> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  owl:imports <https://linked.data.qld.gov.au/service> ;
+  owl:imports <https://linked.data.qld.gov.au/vocab> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+ccam10:Qfcp
+  a dcat:Dataset ;
+  dcterms:conformsTo ccam10:netCDF-CF ;
+  dcterms:created "2016-04-15"^^xsd:date ;
+  dcterms:description "Data produced for the LongPaddock Queensland Future Climate Dashboard http://longpaddock.qld.gov.au" ;
+  dcterms:publisher <https://linked.data.qld.gov.au/agent/DES> ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      dcat:centroid "{\"type\":\"Point\",\"coordinates\":[145, -20]}"^^rdf:JSON ;
+    ] ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[132, -32]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[158, -9.5]}"^^rdf:JSON ;
+    ] ;
+  dcterms:title "Queensland future climate projections derived from CMIP5 data downscaled using CCAM on a 10km grid" ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/CI_PresentationFormCode/modelDigital> ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_ScopeCode/coverage> ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <http://codes.wmo.int/bufr4/b/13/023> ;
+      qudt:unit <http://qudt.org/vocab/unit/MM> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> ;
+      qudt:hasQuantityKind <http://vocab.aodn.org.au/def/sampling_parameter/entity/387> ;
+      qudt:hasQuantityKind <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0115/> ;
+      qudt:hasQuantityKind <http://www.w3.org/2006/time#numericPosition> ;
+      qudt:unit <http://www.w3.org/2006/time#unitDay> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <http://vocab.nerc.ac.uk/collection/P01/current/ALATZZ01> ;
+      qudt:hasQuantityKind <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0600/> ;
+      qudt:hasQuantityKind <https://epsg.io/106-axis> ;
+      qudt:hasQuantityKind <https://epsg.org/coordinate-axis-name_9901/Geodetic-latitude.html> ;
+      qudt:unit <http://qudt.org/vocab/unit/DEG> ;
+      qudt:unit <https://epsg.io/9102-units> ;
+      qudt:unit <https://epsg.org/unit_9102/degree.html> ;
+    ] ;
+  qudt:hasQuantity [
+      a qudt:Quantity ;
+      qudt:hasQuantityKind <http://vocab.nerc.ac.uk/collection/P01/current/ALONZZ01> ;
+      qudt:hasQuantityKind <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0554/> ;
+      qudt:hasQuantityKind <https://epsg.io/107-axis> ;
+      qudt:hasQuantityKind <https://epsg.org/coordinate-axis-name_9902/Geodetic-longitude.html> ;
+      qudt:unit <http://qudt.org/vocab/unit/DEG> ;
+      qudt:unit <https://epsg.io/9102-units> ;
+      qudt:unit <https://epsg.org/unit_9102/degree.html> ;
+    ] ;
+  rdfs:comment ":domain = \"QLD-10\"" ;
+  rdfs:comment ":references = \"The Long Paddock\"" ;
+  rdfs:comment ":schmidt = 0.19" ;
+  rdfs:comment """dimensions:
+        lat = 226 ;
+        lon = 261 ;
+        time = UNLIMITED ; // (1440 currently)""" ;
+  dcat:contactPoint <https://linked.data.qld.gov.au/agent/longpaddock> ;
+  dcat:distribution [
+      a dcat:Distribution ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/x-netcdf> ;
+    ] ;
+  dcat:keyword "climate" ;
+  dcat:keyword "precipitation" ;
+  dcat:keyword "rainfall" ;
+  dcat:theme <https://linked.data.gov.au/def/qld-open/group/environment> ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description """                :experiment = \"Climate change run using CCAM 0.1 deg stretched grid nudged by 1-D spectral filter using 6-hourly data from CCAM 0.5 deg global regular grid\" ;
+                :driving_model_id = \"ACCESS1-0Q\" ;
+                :driving_experiment_id = \"rcp85\" ;
+                :driving_experiment = \"ACCESS1-0Q; rcp85; r1i1p1\" ;
+                :experiment_id = \"rcp85\" ;
+                :intermediate_model_id = \"CSIRO-CCAM-r1312M\" ;
+                :intermediate_experiment = \"CSIRO-CCAM-r1312M 0.5 deg; rcp85; r1i1p1\" ;
+                :source = \"CSIRO Conformal-Cubic Atmospheric Model (CCAM) version r2671M\" ;
+                :model_id = \"CSIRO-CCAM-r2671M\" ;
+                :parent_experiment_id = \"historical\" ;
+                :realization = 1 ;
+                :il = 192 ;
+                :kl = 27 ;
+                :history = \"2016-04-15: Interpolated from the original cubic conformal grid to regular lat/lon grid using pcc2hist\" ;
+""" ;
+    ] ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/grid> ;
+    ] ;
+.
+ccam10:Qfcp-cat
+  a dcat:CatalogRecord ;
+  dcterms:created "2019-12-13T12:35:55+10:00" ;
+  dcterms:modified "2019-12-13" ;
+  foaf:primaryTopic ccam10:Qfcp ;
+.
+ccam10:netCDF-CF
+  a dcterms:Standard ;
+  dcterms:title "CF-1.7" ;
+.

@@ -1,0 +1,184 @@
+# baseURI: https://linked.data.qld.gov.au/dataset/regulated-vegetation-category-C
+# imports: http://www.w3.org/ns/dqv
+# imports: https://linked.data.qld.gov.au/agent
+# imports: https://linked.data.qld.gov.au/def/dcat
+# imports: https://linked.data.qld.gov.au/service
+# imports: https://linked.data.qld.gov.au/vocab
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix anzlic: <https://linked.data.gov.au/def/ANZLIC-search/> .
+@prefix auspix: <http://pid.geoscience.gov.au/dggs/ausPIX/> .
+@prefix data: <http://linked.data.gov.au/def/datatype/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://linked.data.qld.gov.au/dataset/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix group: <https://linked.data.qld.gov.au/def/group/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qagent: <https://linked.data.qld.gov.au/agent/> .
+@prefix qdcat: <https://linked.data.qld.gov.au/def/dcat#> .
+@prefix qdef: <https://linked.data.qld.gov.au/def/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix service: <https://linked.data.qld.gov.au/service/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Regulated-vegetation-category-C
+  a dcat:Dataset ;
+  dcterms:accessRights <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
+  dcterms:accrualPeriodicity <http://registry.it.csiro.au/def/isotc211/MD_MaintenanceFrequencyCode/biannually> ;
+  dcterms:date "2017-07-26"^^xsd:date ;
+  dcterms:description """This layer shows Regulated Vegetation that is endangered or of concern regrowth regional ecosystems (RE) on the supporting map within the Regulated Vegetation Map (RVM) Category C that are matters of state environmental significance (MSES). &#13;
+&#13;
+The information in this layer is derived directly from it's source. Please contact the Department of Natural Resources Mines and Energy for more information on the data.""" ;
+  dcterms:identifier "{8E151344-E458-45E9-8993-5E855D311971}" ;
+  dcterms:isPartOf "{36F320E3-8E41-446A-AD9C-EE4395B48BB6}" ;
+  dcterms:issued "2020-04-09"^^xsd:date ;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/au/> ;
+  dcterms:license """The Department of Environment and Science requests attribution in the following manner:
+© State of Queensland (Department of Environment and Science) 2020.""" ;
+  dcterms:rights "© State of Queensland (Department of Environment and Science) 2020" ;
+  dcterms:source "ENVEP.QLD_MSES_08B_VEG_C_EOC" ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      dcat:bbox "{\"type\":\"Polygon\",\"coordinates\":[[[138,-29.5],[155,-29.5],[155,-9],[138,-9],[138,-29.5]]]}"^^rdf:JSON ;
+    ] ;
+  dcterms:spatial [
+      a dcterms:Location ;
+      dcat:centroid "{\"type\":\"Point\",\"coordinates\":[146.5, -19.25]}"^^rdf:JSON ;
+    ] ;
+  dcterms:spatial [
+      a qdcat:BBox ;
+      qdcat:lowerLeft "{\"type\":\"Point\",\"coordinates\":[138, -29.5]}"^^rdf:JSON ;
+      qdcat:upperRight "{\"type\":\"Point\",\"coordinates\":[155, -9]}"^^rdf:JSON ;
+    ] ;
+  dcterms:temporal [
+      a dcterms:PeriodOfTime ;
+      dcat:endDate "2017-06-30"^^xsd:date ;
+      dcat:startDate "2017-06-30"^^xsd:date ;
+    ] ;
+  dcterms:title "Matters of state environmental significance - Regulated vegetation - category C endangered or of concern - Queensland" ;
+  dcterms:type <http://registry.it.csiro.au/def/isotc211/CI_PresentationFormCode/documentDigital> ;
+  rdfs:comment "MSES is a set of layers representing defined values in the State Planning Policy 2017 (SPP) and Environmental Offsets Regulation 2014. MSES are derived from multiple sources to be used for land-use planning and development assessment purposes.Matters of environmental signficance is defined by the SPP as:-protected areas (including all classes of protected area except coordinated conservation areas) under the Nature Conservation Act 1992-‘marine national park’, ‘conservation park’, ‘scientific research’, ‘preservation’ or ‘buffer’ zones under the Marine Parks Act 2004-areas within declared fish habitat areas that are management A areas or management B areas under the Fisheries Regulation 2008 -a designated precinct, in a strategic environmental area under the Regional Planning Interests Regulation 2014, schedule 2, part 5, s15(3)-wetlands in a wetland protection area or wetlands of high ecological significance shown on the map of referable wetlands under the Environmental Protection Regulation 2008 -wetlands and watercourses in high ecological value waters identified in the Environmental Protection (Water) Policy 2009, schedule 1 -legally secured offset areas as defined under the Environmental Offsets Act 2014.-threatened wildlife under the Nature Conservation Act 1992and special least concern animals under the Nature Conservation (Wildlife) Regulation 2006 -marine plants under the Fisheries Act 1994 (excluding marine plants in an urban area) -waterways that provide for fish passage under the Fisheries Act 1994(excluding waterways providing for fish passage in an urban area) -High risk area on the flora survey trigger as described by the Environmental offsets Regulation 2014, schedule 2, part6(1)regulated vegetation under the Vegetation Management Act 1999that is: -category B areas on the regulated vegetation management map, that are ‘endangered’ and ‘of concern’ regional ecosystems -category C areas on the regulated vegetation management map that are ‘endangered’ and ‘of concern’ regional ecosystems -category R areas on the regulated vegetation management map -areas of essential habitat on the essential habitat map for an animal that is ‘endangered wildlife’ or ‘vulnerable wildlife’ or a plant that is ‘endangered wildlife’ or ‘vulnerable wildlife’ wildlife prescribed as ‘endangered wildlife’ or ‘vulnerable wildlife’ under the Nature Conservation Act 1992-category A,B,C,R areas that are located within a defined distance8 from the defining banks of a relevant watercourse identified on the vegetation management watercourse and drainage feature map -category A,B,C,R areas that are located within 100 metres from the defining bank of a wetland identified on the vegetation management wetlands map.MSES mapping is viewable to an allotment scale from the SPP Interactive Mapping System (IMS) or the development assessment mapping system (DAMS), available at www.dilgp.qld.gov.au. The mapping data can be obtained for use in a geographic information system (GIS) from the Queensland Spatial Catalogue (QSpatial) at http://qspatial.information.qld.gov.au. A MSES mapping methodology can also be located on the EHP website at https://www.ehp.qld.gov.au/management/planning-guidelines/method-mapping-mses.html." ;
+  skos:scopeNote """To be used in conjunction with other MSES Mapping layers available on QSpatial. &#13;
+&#13;
+Dataset 11 of MSES Series""" ;
+  adms:status <http://registry.it.csiro.au/def/isotc211/MD_ProgressCode/planned> ;
+  dcat:contactPoint qagent:mapping-coordinator ;
+  dcat:distribution ex:Regulated-vegetation-category-C-gdb ;
+  dcat:distribution ex:Regulated-vegetation-category-C-kml ;
+  dcat:distribution ex:Regulated-vegetation-category-C-shp ;
+  dcat:distribution ex:Regulated-vegetation-category-C-tab ;
+  dcat:keyword "BIODIVERSITY" ;
+  dcat:keyword "Category C" ;
+  dcat:keyword "Endangered" ;
+  dcat:keyword "MSES" ;
+  dcat:keyword "Of Concern" ;
+  dcat:keyword "PLANNING" ;
+  dcat:keyword "RVM" ;
+  dcat:keyword "Regional Ecosystem" ;
+  dcat:keyword "Regulated Vegetation" ;
+  dcat:keyword "SPP" ;
+  dcat:keyword "STATE" ;
+  dcat:keyword "VMA" ;
+  dcat:keyword "regrowth" ;
+  dcat:landingPage <https://www.ehp.qld.gov.au/management/planning-guidelines/method-mapping-mses.html> ;
+  dcat:qualifiedRelation [
+      a dcat:Relationship ;
+      dcterms:relation service:Queensland_Spatial_Catalogue ;
+      rdfs:comment "From the Queensland Spatial Catalogue available as ESRI Shape file SHP, MapInfo Tab file TAB, ESRI file geodatabase FGDB, Google file KMZ, and Geopackage version 1.0, 1.1, or 1.2 file GPKG" ;
+    ] ;
+  dcat:theme <http://registry.it.csiro.au/def/isotc211/MD_TopicCategoryCode/environment> ;
+  dcat:theme anzlic:boundaries ;
+  dcat:theme anzlic:boundaries-biophysical ;
+  dcat:theme anzlic:human-environment-planning ;
+  dcat:theme anzlic:land-use ;
+  dcat:theme anzlic:vegetation ;
+  dcat:theme group:environment ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/custodian> ;
+      prov:agent qagent:environmental-planning-director ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/owner> ;
+      prov:agent qagent:environmental-planning-director ;
+    ] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution ;
+      dcat:hadRole <http://registry.it.csiro.au/def/isotc211/CI_RoleCode/resourceProvider> ;
+      prov:agent qagent:qspatial ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:description """See MSES methodology &#13;
+&#13;
+an extract of Regulated Vegetation Regional Ecosystems (endangered or of concern) where it intersects Category C on Regulated Vegetation Map. &#13;""" ;
+      prov:used "VEGMGT.QLD_VEG_RVM_100K_CUR , VEGMGT.QLD_VEG_RVMREREM_CODE_CUR , ENVEP.QLD_MSES_08A_VEG_C_EOC" ;
+    ] ;
+  prov:wasGeneratedBy [
+      a prov:Activity ;
+      dcterms:identifier "no 11 in MSES series" ;
+    ] ;
+  qdcat:altTitle "MSES - Regulated vegetation - category C endangered or of concern" ;
+  qdcat:hasSpatialRepresentation [
+      a qdcat:SpatialRepresentation ;
+      geox:inCRS <https://epsg.io/4283> ;
+      dcterms:type <http://registry.it.csiro.au/def/isotc211/MD_SpatialRepresentationTypeCode/vector> ;
+    ] ;
+.
+ex:Regulated-vegetation-category-C-gdb
+  a dcat:Distribution ;
+  dcterms:format "GDB" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Matters%20of%20state%20environmental%20significance%20-%20Regulated%20vegetation%20-%20category%20C%20endangered%20or%20of%20concern%20-%20Queensland%22> ;
+  dcat:byteSize 12000000.00 ;
+.
+ex:Regulated-vegetation-category-C-kml
+  a dcat:Distribution ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Matters%20of%20state%20environmental%20significance%20-%20Regulated%20vegetation%20-%20category%20C%20endangered%20or%20of%20concern%20-%20Queensland%22> ;
+  dcat:byteSize 12000000.0 ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.google-earth.kml+xml> ;
+.
+ex:Regulated-vegetation-category-C-shp
+  a dcat:Distribution ;
+  dcterms:format "ESRI Shape file SHP" ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Matters%20of%20state%20environmental%20significance%20-%20Regulated%20vegetation%20-%20category%20C%20endangered%20or%20of%20concern%20-%20Queensland%22> ;
+  dcat:byteSize 12000000.0 ;
+.
+ex:Regulated-vegetation-category-C-tab
+  a dcat:Distribution ;
+  dcat:accessService service:Queensland_Spatial_Catalogue ;
+  dcat:accessURL <http://qldspatial.information.qld.gov.au/catalogue/custom/search.page?q=%22Matters%20of%20state%20environmental%20significance%20-%20Regulated%20vegetation%20-%20category%20C%20endangered%20or%20of%20concern%20-%20Queensland%22> ;
+  dcat:byteSize 12000000.0 ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/text/tab-separated-values> ;
+.
+ex:regulated-vegetation-category-C
+  a owl:Ontology ;
+  dcterms:created "2020-05-15"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:description "Preliminary interpretation of a dataset metadata record" ;
+  dcterms:isFormatOf <https://github.com/EcosciencesQLD/metadata-samples/blob/master/iso-style-xml/Regulated-vegetation-category-C.xml> ;
+  dcterms:modified "2020-05-20"^^xsd:date ;
+  rdfs:comment "This example was handcrafted in the process of developing QDCAT" ;
+  owl:imports <http://www.w3.org/ns/dqv> ;
+  owl:imports <https://linked.data.qld.gov.au/agent> ;
+  owl:imports <https://linked.data.qld.gov.au/def/dcat> ;
+  owl:imports <https://linked.data.qld.gov.au/service> ;
+  owl:imports <https://linked.data.qld.gov.au/vocab> ;
+.
+service:Queensland_Spatial_Catalogue
+  dcat:servesDataset ex:Regulated-vegetation-category-C ;
+.
