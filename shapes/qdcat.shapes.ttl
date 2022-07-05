@@ -575,7 +575,7 @@ qdcats:Dataset
       sh:maxCount 1 ;
       sh:nodeKind sh:IRI ;
       sh:pattern "^(https://)|(http://)" ;
-  ]
+  ] ;
   sh:property [
       sh:path dcterms:title ;
       sh:datatype xsd:string ;
