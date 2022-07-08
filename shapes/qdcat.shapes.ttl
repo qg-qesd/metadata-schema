@@ -102,13 +102,13 @@ qdcats:BBox
   a sh:NodeShape ;
   sh:property [
       sh:path qdcat:lowerLeft ;
-      sh:datatype rdf:JSON ;
+      sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
   sh:property [
       sh:path qdcat:upperRight ;
-      sh:datatype rdf:JSON ;
+      sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
@@ -158,7 +158,7 @@ qdcats:CatalogRecord
       sh:path dcat:contactPoint ;
       sh:description "person (functional position) to contact for more information about the metadata" ;
       sh:maxCount 1 ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:Literal ;
     ] ;
   sh:property [
       sh:path foaf:primaryTopic ;
@@ -235,7 +235,7 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:language ;
-      sh:defaultValue <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+      sh:defaultValue <https://linked.data.gov.au/def/iso639-1/eng> ;
       sh:group qdcats:ThemeGroup ;
       sh:nodeKind sh:IRI ;
     ] ;
@@ -319,8 +319,7 @@ qdcats:DataService
       sh:group qdcats:ResponsibilitiesGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+      sh:nodeKind sh:Literal ;
       sh:resultSeverity sh:Violation ;
     ] ;
   sh:property [
@@ -481,13 +480,14 @@ qdcats:Dataset
     ] ;
   sh:property [
       sh:path dcterms:language ;
-      sh:defaultValue <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+      sh:defaultValue <https://linked.data.gov.au/def/iso639-1/eng> ;
       sh:description "dataset language" ;
       sh:group qdcats:ThemeGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^(https://id.loc.gov/vocabulary/iso639-2/)|(http://id.loc.gov/vocabulary/iso639-2/)" ;
+      sh:pattern "^https://linked.data.gov.au/def/iso639-1/" ;
+      sh:resultMessage "A dataset needs to have its language defined" ;
     ] ;
   sh:property [
       sh:path dcterms:license ;
@@ -610,8 +610,7 @@ qdcats:Dataset
       sh:group qdcats:ResponsibilitiesGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+      sh:nodeKind sh:Literal ;
       sh:resultSeverity sh:Violation ;
     ] ;
   sh:property [
@@ -811,7 +810,7 @@ qdcats:Geometry
   a sh:NodeShape ;
   sh:property [
       sh:path qdcat:asGeoJSON ;
-      sh:datatype rdf:JSON ;
+      sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
@@ -837,7 +836,7 @@ qdcats:Location
       [
         sh:property [
             sh:path dcat:centroid ;
-            sh:datatype rdf:JSON ;
+            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
           ] ;
@@ -845,7 +844,7 @@ qdcats:Location
       [
         sh:property [
             sh:path dcat:bbox ;
-            sh:datatype rdf:JSON ;
+            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
           ] ;
@@ -853,13 +852,13 @@ qdcats:Location
       [
         sh:property [
             sh:path qdcat:lowerLeft ;
-            sh:datatype rdf:JSON ;
+            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
           ] ;
         sh:property [
             sh:path qdcat:upperRight ;
-            sh:datatype rdf:JSON ;
+            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
           ] ;
