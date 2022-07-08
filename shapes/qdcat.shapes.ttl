@@ -116,9 +116,6 @@ qdcats:BBox
 .
 qdcats:CatalogRecord
   a sh:NodeShape ;
-  sh:not qdcats:Dataset ;
-  sh:not qdcats:DataService ;
-  sh:not qdcats:Distribution ;
   sh:property [
       sh:path dcterms:created ;
       sh:description "metadata creation date" ;
@@ -186,9 +183,6 @@ qdcats:CatalogRecord
 .
 qdcats:DataService
   a sh:NodeShape ;
-  sh:not qdcats:Dataset ;
-  sh:not qdcats:CatalogRecord ;
-  sh:not qdcats:Distribution ;
   sh:property [
       sh:path dcterms:accessRights ;
       sh:defaultValue <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
@@ -398,9 +392,6 @@ qdcats:DataService
 .
 qdcats:Dataset
   a sh:NodeShape ;
-  sh:not qdcats:CatalogRecord ;
-  sh:not qdcats:DataService ;
-  sh:not qdcats:Distribution ;
   sh:property [
       sh:path dcterms:accessRights ;
       sh:description "security classification" ;
@@ -724,9 +715,6 @@ qdcats:Dataset
 .
 qdcats:Distribution
   a sh:NodeShape ;
-  sh:not qdcats:Dataset ;
-  sh:not qdcats:DataService ;
-  sh:not qdcats:CatalogRecord ;
   sh:or (
       [
         sh:property [
@@ -836,7 +824,6 @@ qdcats:IDGroup
 .
 qdcats:Location
   a sh:NodeShape ;
-  sh:not qdcats:PeriodOfTime ;
   sh:targetClass dcterms:Location ;
   sh:xone (
       [
@@ -881,7 +868,6 @@ qdcats:Location
 .
 qdcats:PeriodOfTime
   a sh:NodeShape ;
-  sh:not qdcats:Location ;
   sh:property [
       sh:path dcat:endDate ;
       sh:maxCount 1 ;
