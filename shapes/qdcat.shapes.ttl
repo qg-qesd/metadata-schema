@@ -71,7 +71,7 @@ qdcats:Activity
     ] ;
   sh:property [
       sh:path prov:wasAssociatedWith ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path sosa:madeBySensor ;
@@ -93,8 +93,7 @@ qdcats:Attribution
       sh:path prov:agent ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:pattern "^(https://)|(http://)" ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:targetClass prov:Attribution ;
 .
@@ -120,7 +119,6 @@ qdcats:CatalogRecord
       sh:path dcterms:created ;
       sh:description "metadata creation date" ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:or (
           [
             sh:datatype xsd:date ;
@@ -201,7 +199,7 @@ qdcats:DataService
       sh:path dcterms:creator ;
       sh:description "person, functional position, or organization who initiated the service" ;
       sh:group qdcats:ResponsibilitiesGroup ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path dcterms:description ;
@@ -213,7 +211,7 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:identifier ;
-      sh:description "identifier in the Qld system (might be more than one)" ;
+      sh:description "identifier in the Qld system (might be more than one) for a data service" ;
       sh:group qdcats:IDGroup ;
       sh:minCount 1 ;
       sh:nodeKind sh:Literal ;
@@ -289,6 +287,7 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:title ;
+      sh:description "data service title"
       sh:datatype xsd:string ;
       sh:group qdcats:IDGroup ;
       sh:maxCount 1 ;
@@ -378,9 +377,9 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path odrl:hasPolicy ;
-      sh:description "Specialized description of rights, encoded using ODRL" ;
+      sh:description "Specialized description of rights, encoded using ODRL preferred" ;
       sh:group qdcats:RightsGroup ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path prov:qualifiedAttribution ;
@@ -423,6 +422,7 @@ qdcats:Dataset
       sh:path dcterms:created ;
       sh:description "date the dataset was created" ;
       sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
       sh:or (
           [
             sh:datatype xsd:date ;
@@ -436,7 +436,7 @@ qdcats:Dataset
       sh:path dcterms:creator ;
       sh:description "person, functional position, or organization who created the dataset - ORCID or URI-ref to a member of the Queensland agent register is preferred" ;
       sh:group qdcats:ResponsibilitiesGroup ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path dcterms:description ;
@@ -448,7 +448,7 @@ qdcats:Dataset
     ] ;
   sh:property [
       sh:path dcterms:identifier ;
-      sh:description "identifier(s) in the Qld system(s) (may be more than one)" ;
+      sh:description "identifier(s) in the Qld system(s) (may be more than one) for a dataset" ;
       sh:group qdcats:IDGroup ;
       sh:minCount 1 ;
       sh:nodeKind sh:Literal ;
@@ -678,9 +678,9 @@ qdcats:Dataset
     ] ;
   sh:property [
       sh:path odrl:hasPolicy ;
-      sh:description "Specialized description of rights, encoded using ODRL" ;
+      sh:description "Specialized description of rights, encoded using ODRL preferred" ;
       sh:group qdcats:RightsGroup ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path prov:qualifiedAttribution ;
@@ -778,7 +778,6 @@ qdcats:Distribution
       sh:path dcat:downloadURL ;
       sh:description "URL to download a file directly" ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:name "download URL" ;
       sh:nodeKind sh:IRI ;
     ] ;
