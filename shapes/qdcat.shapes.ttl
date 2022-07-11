@@ -267,12 +267,13 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:publisher ;
-      sh:defaultValue <https://linked.data.qld.gov.au/agent/DES> ;
+      sh:defaultValue <https://linked.data.gov.au/def/qg-agent/DES> ;
       sh:description "organization responsible for this service, given as a URI-ref to a member of the Queensland agent register" ;
       sh:group qdcats:ResponsibilitiesGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^https://linked.data.gov.au/def/qg-agent/"
     ] ;
   sh:property [
       sh:path dcterms:relation ;
@@ -515,12 +516,13 @@ qdcats:Dataset
     ] ;
   sh:property [
       sh:path dcterms:publisher ;
+      sh:defaultValue <https://linked.data.gov.au/def/qg-agent/DES> ;
       sh:description "organization responsible for this dataset, given as a URI-ref to a member of the Queensland agent register" ;
       sh:group qdcats:ResponsibilitiesGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^https://linked.data.qld.gov.au/agent/" ;
+      sh:pattern "^https://linked.data.gov.au/def/qg-agent/" ;
     ] ;
   sh:property [
       sh:path dcterms:relation ;
@@ -714,24 +716,13 @@ qdcats:Dataset
 .
 qdcats:Distribution
   a sh:NodeShape ;
-  sh:or (
-      [
-        sh:property [
-            sh:path dcat:mediaType ;
-            sh:description "primary format - MIME-type" ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-          ] ;
-      ]
-      [
-        sh:property [
-            sh:path dcterms:format ;
-            sh:datatype xsd:string ;
-            sh:description "primary format - name" ;
-            sh:minCount 1 ;
-          ] ;
-      ]
-    ) ;
+  sh:property [
+      sh:path dcterms:format ;
+      sh:nodeKind sh:IRI ;
+      sh:description "primary format type" ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ;
   sh:property [
       sh:path dcterms:conformsTo ;
       sh:description "indicate the schema, data-structure, vocabularies used by the dataset" ;
@@ -987,7 +978,7 @@ qdcats:SpatialRepresentation
       sh:path geox:inCRS ;
       rdfs:comment "matches EPSG codes" ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^(https://epsg.io/)|(https://epsg.org/)" ;
+      sh:pattern "^http://linked.data.gov.au/def/queensland-crs/" ;
     ] ;
   sh:property [
       sh:path dcterms:type ;
