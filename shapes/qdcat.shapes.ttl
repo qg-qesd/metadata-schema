@@ -183,11 +183,11 @@ qdcats:DataService
   a sh:NodeShape ;
   sh:property [
       sh:path dcterms:accessRights ;
-      sh:defaultValue <http://registry.it.csiro.au/def/isotc211/MD_ClassificationCode/unclassified> ;
       sh:description "security classification" ;
       sh:group qdcats:RightsGroup ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^https://linked.data.gov.au/def/qg-security-classifications/" ;
     ] ;
   sh:property [
       sh:path dcterms:conformsTo ;
@@ -271,7 +271,7 @@ qdcats:DataService
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^https://linked.data.gov.au/def/qg-agent/"
+      sh:pattern "^(https://linked.data.gov.au/def/qg-agent/)|(http://linked.data.gov.au/def/qg-agent/)" ;
     ] ;
   sh:property [
       sh:path dcterms:relation ;
@@ -287,7 +287,7 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:title ;
-      sh:description "data service title"
+      sh:description "data service title" ;
       sh:datatype xsd:string ;
       sh:group qdcats:IDGroup ;
       sh:maxCount 1 ;
@@ -950,7 +950,6 @@ qdcats:Relationship
   sh:property [
       sh:path dcat:hadRole ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
       sh:pattern "^(https://)|(http://)" ;
     ] ;
