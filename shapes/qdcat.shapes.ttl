@@ -336,7 +336,7 @@ qdcats:DataService
       sh:description "general classification of service type; e.g. 'download' or 'view' or 'discovery'" ;
       sh:group qdcats:ThemeGroup ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/" ;
+      sh:pattern "^http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/" ;
       sh:resultSeverity sh:Warning ;
       sh:message "The type of service should follow the accepted pattern" ;
     ] ;
@@ -1003,7 +1003,7 @@ qdcats:Relationship
       sh:maxCount 1 ;
       sh:maxCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^https://linked.data.gov.au/def/dataset-relationships/" ;
+      sh:pattern "^(https://linked.data.gov.au/def/dataset-relationships/)|(http://purl.org/dc/terms/)|(http://www.w3.org/ns/prov/)" ;
     ] ;
   sh:targetClass dcat:Relationship ;
 .
