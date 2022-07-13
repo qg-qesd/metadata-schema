@@ -48,11 +48,13 @@
   sdo:codeRepository <https://github.com/EcosciencesQLD/dcat-profile> ,
        <https://github.com/EcosciencesQLD/metadata-schema> ;
 .
+
 qdcats:AccessGroup
   a sh:PropertyGroup ;
   rdfs:label "Access" ;
   sh:order 9 ;
 .
+
 qdcats:Activity
   a sh:NodeShape ;
   sh:property [
@@ -80,6 +82,7 @@ qdcats:Activity
     ] ;
   sh:targetClass prov:Activity ;
 .
+
 qdcats:Attribution
   a sh:NodeShape ;
   sh:property [
@@ -97,6 +100,7 @@ qdcats:Attribution
     ] ;
   sh:targetClass prov:Attribution ;
 .
+
 qdcats:BBox
   a sh:NodeShape ;
   sh:property [
@@ -113,6 +117,7 @@ qdcats:BBox
     ] ;
   sh:targetClass qdcat:BBox ;
 .
+
 qdcats:CatalogRecord
   a sh:NodeShape ;
   sh:property [
@@ -179,6 +184,7 @@ qdcats:CatalogRecord
     ] ;
   sh:targetClass dcat:CatalogRecord ;
 .
+
 qdcats:DataService
   a sh:NodeShape ;
   sh:property [
@@ -194,6 +200,7 @@ qdcats:DataService
       sh:description "indicate the API standards, e.g. ESRI GeoDatabase, OGC WMS, WFS, CS/W etc" ;
       sh:group qdcats:AccessGroup ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^http://pid.geoscience.gov.au/def/voc/ga/servicetype/" ;
     ] ;
   sh:property [
       sh:path dcterms:creator ;
@@ -203,11 +210,19 @@ qdcats:DataService
     ] ;
   sh:property [
       sh:path dcterms:description ;
-      sh:description "Textual description of the service" ;
+      sh:description "Textual description or abstract of the service" ;
       sh:group qdcats:ThemeGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:nodeKind sh:Literal ;
+      sh:or (
+          [
+            sh:datatype xsd:string ;
+          ]
+          [
+            sh:datatype rdf:HTML ;
+          ]
+        ) ;
     ] ;
   sh:property [
       sh:path dcterms:identifier ;
@@ -215,7 +230,8 @@ qdcats:DataService
       sh:group qdcats:IDGroup ;
       sh:minCount 1 ;
       sh:nodeKind sh:Literal ;
-      sh:resultSeverity sh:Warning ;
+      sh:resultSeverity sh:Violation ;
+      sh:message "It is mandatory for a data service to have at least one identifier" ;
     ] ;
   sh:property [
       sh:path dcterms:issued ;
@@ -236,20 +252,24 @@ qdcats:DataService
       sh:defaultValue <https://linked.data.gov.au/def/iso639-1/eng> ;
       sh:group qdcats:ThemeGroup ;
       sh:nodeKind sh:IRI ;
+      sh:resultSeverity sh:Warning ;
+      sh:message "The data service language should be defined from ISO639-1" ;
+      sh:pattern "^https://linked.data.gov.au/def/iso639-1/" ;
     ] ;
   sh:property [
       sh:path dcterms:license ;
-      sh:defaultValue <https://creativecommons.org/licenses/by/4.0/> ;
+      sh:defaultValue <http://linked.data.gov.au/def/qld-data-licenses/cc-by-4.0> ;
       sh:description "standard license (e.g. Creative Commons)" ;
       sh:group qdcats:RightsGroup ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^http://linked.data.gov.au/def/qld-data-licenses/" ;
       sh:resultMessage "A license must be provided for the service" ;
     ] ;
   sh:property [
       sh:path dcterms:modified ;
-      sh:description "service update date" ;
+      sh:description "service update or modified date" ;
       sh:group qdcats:StatusGroup ;
       sh:maxCount 1 ;
       sh:or (
@@ -261,6 +281,22 @@ qdcats:DataService
           ]
         ) ;
       sh:resultMessage "Last modification date should be provided" ;
+      sh:resultSeverity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path dcterms:created ;
+      sh:description "service creation date" ;
+      sh:group qdcats:StatusGroup ;
+      sh:maxCount 1 ;
+      sh:or (
+          [
+            sh:datatype xsd:date ;
+          ]
+          [
+            sh:datatype xsd:dateTime ;
+          ]
+        ) ;
+      sh:resultMessage "The date the service was created" ;
       sh:resultSeverity sh:Warning ;
     ] ;
   sh:property [
@@ -292,19 +328,32 @@ qdcats:DataService
       sh:group qdcats:IDGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:severity sh:Violation ;
+      sh:message "It is mandatory for a data service to have a title" ;
     ] ;
   sh:property [
       sh:path dcterms:type ;
       sh:description "general classification of service type; e.g. 'download' or 'view' or 'discovery'" ;
       sh:group qdcats:ThemeGroup ;
-      sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/" ;
+      sh:resultSeverity sh:Warning ;
+      sh:message "The type of service should follow the accepted pattern" ;
     ] ;
   sh:property [
       sh:path rdfs:comment ;
       sh:description "additional information e.g. warnings" ;
       sh:group qdcats:ThemeGroup ;
+      sh:resultSeverity sh:Warning ;
       sh:nodeKind sh:Literal ;
+      sh:or (
+          [
+            sh:datatype xsd:string ;
+          ]
+          [
+            sh:datatype rdf:HTML ;
+          ]
+        ) ;
     ] ;
   sh:property [
       sh:path adms:status ;
@@ -312,6 +361,7 @@ qdcats:DataService
       sh:group qdcats:StatusGroup ;
       sh:maxCount 1 ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^(https://)|(http://)" ;
     ] ;
   sh:property [
       sh:path dcat:contactPoint ;
@@ -319,7 +369,7 @@ qdcats:DataService
       sh:group qdcats:ResponsibilitiesGroup ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:nodeKind sh:Literal ;
+      sh:nodeKind sh:IRIOrLiteral ;
       sh:resultSeverity sh:Violation ;
     ] ;
   sh:property [
@@ -327,16 +377,16 @@ qdcats:DataService
       sh:description "technical description of this endpoint - getCapabilities document, OpenAPI (Swagger), including queriables is preferred, else a blank-node containing a dcterms:description element" ;
       sh:group qdcats:AccessGroup ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:nodeKind sh:BlankNodeOrIRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
+      sh:name "details of the endpoint" ;
+      sh:resultSeverity sh:Warning ;
     ] ;
   sh:property [
       sh:path dcat:endpointURL ;
       sh:description "URI of the API for machine-machine connections" ;
       sh:group qdcats:AccessGroup ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:name "endpoint URL" ;
+      sh:name "Address of the API" ;
       sh:nodeKind sh:IRI ;
       sh:resultSeverity sh:Warning ;
     ] ;
@@ -351,9 +401,7 @@ qdcats:DataService
       sh:description "URI of the landing-page for human use" ;
       sh:group qdcats:AccessGroup ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:resultMessage "No web-page is provided for the service" ;
       sh:resultSeverity sh:Warning ;
     ] ;
   sh:property [
@@ -366,7 +414,6 @@ qdcats:DataService
       sh:path dcat:servesDataset ;
       sh:description "pointer to a dataset hosted by the service" ;
       sh:group qdcats:ThemeGroup ;
-      sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -374,12 +421,15 @@ qdcats:DataService
       sh:description "keyword from a controlled vocabulary, denoted as a URI-reference" ;
       sh:group qdcats:ThemeGroup ;
       sh:nodeKind sh:IRI ;
+      sh:pattern "^https://gcmdservices.gsfc.nasa.gov/kms/concept/" ;
+      sh:message "The topic or theme from a data service should be described using the relevant GCMD keywords" ;
     ] ;
   sh:property [
       sh:path odrl:hasPolicy ;
       sh:description "Specialized description of rights, encoded using ODRL preferred" ;
       sh:group qdcats:RightsGroup ;
       sh:nodeKind sh:IRIOrLiteral ;
+      sh:maxCount 1 ;
     ] ;
   sh:property [
       sh:path prov:qualifiedAttribution ;
@@ -389,6 +439,7 @@ qdcats:DataService
     ] ;
   sh:targetClass dcat:DataService ;
 .
+
 qdcats:Dataset
   a sh:NodeShape ;
   sh:property [
@@ -950,8 +1001,9 @@ qdcats:Relationship
   sh:property [
       sh:path dcat:hadRole ;
       sh:maxCount 1 ;
+      sh:maxCount 1 ;
       sh:nodeKind sh:IRI ;
-      sh:pattern "^(https://)|(http://)" ;
+      sh:pattern "^https://linked.data.gov.au/def/dataset-relationships/" ;
     ] ;
   sh:targetClass dcat:Relationship ;
 .
