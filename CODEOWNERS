@@ -1,0 +1,4 @@
+# Codeowners file for the QESD Metadata Schema repository
+
+# The default owners for all items in this repo are the Data Management team in Information & Digital Science Delivery.
+*      @qg-qesd/sis-datamanagement
