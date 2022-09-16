@@ -461,7 +461,7 @@ qdcats:Dataset
       sh:path dcterms:conformsTo ;
       sh:description "indicate the schema, data-structure, vocabularies used by the dataset" ;
       sh:group qdcats:QualityGroup ;
-      sh:nodeKind sh:IRI ;
+      sh:nodeKind sh:IRIOrLiteral ;
     ] ;
   sh:property [
       sh:path dcterms:contributor ;
@@ -591,20 +591,16 @@ qdcats:Dataset
       sh:path dcterms:spatial ;
       sh:description "spatial coverage - name or code" ;
       sh:group qdcats:SpatialGroup ;
-      sh:xone (
-          [
-            sh:class dcterms:Location ;
-          ]
-          [
-            sh:class qdcat:BBox ;
-          ]
-          [
-            sh:class geo:Geometry ;
-          ]
-          [
-            sh:class geo:Feature ;
-          ]
-        ) ;
+      sh:or (
+        [sh:class dcterms:Location ;
+        ]
+        [
+        sh:class qdcat:BBox ;
+        ]
+        [
+        sh:nodeKind sh:IRI ;
+        ]
+      )
     ] ;
   sh:property [
       sh:path dcterms:temporal ;
@@ -865,46 +861,25 @@ qdcats:IDGroup
 qdcats:Location
   a sh:NodeShape ;
   sh:targetClass dcterms:Location ;
-  sh:xone (
-      [
         sh:property [
             sh:path geo:hasGeometry ;
             sh:class geo:Geometry ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:minCount 0 ;
           ] ;
-      ]
-      [
         sh:property [
             sh:path dcat:centroid ;
             sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:minCount 0 ;
           ] ;
-      ]
-      [
-        sh:property [
-            sh:path dcat:bbox ;
-            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-          ] ;
-      ]
-      [
-        sh:property [
-            sh:path qdcat:lowerLeft ;
-            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-          ] ;
-        sh:property [
-            sh:path qdcat:upperRight ;
-            sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-          ] ;
-      ]
-    ) ;
+        #sh:property [
+        #    sh:path qdcat:BBox ;
+        #    sh:datatype <https://www.iana.org/assignments/media-types/application/vnd.geo+json> ;
+        #    sh:maxCount 1 ;
+        #    sh:minCount 0 ;
+        #  ] ;
+   ;
 .
 qdcats:PeriodOfTime
   a sh:NodeShape ;
